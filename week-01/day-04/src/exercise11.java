@@ -64,6 +64,14 @@ public class exercise11 {
 
         int j = 1521;
         // tell if j is dividable by 3 or 5 (print as a boolean)
+        if (j % 3 == 0 || j % 5 == 0) {
+            boolean dividable = true;
+            System.out.println(dividable);
+        } else {
+            boolean dividable =false;
+            System.out.println(dividable);
+
+        }
 
 
 
