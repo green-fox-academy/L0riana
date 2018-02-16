@@ -21,7 +21,7 @@ public class exercise11 {
         System.out.println(d);
 
         int e = 8;
-        e *= e;
+        e *= e*e;
         // please cube of e's value
         System.out.println(e);
 
@@ -42,6 +42,9 @@ public class exercise11 {
         if ((2*g2) > g1) {
             boolean biggertrue = true;
             System.out.println(biggertrue);
+        } else {
+            boolean biggertrue = false;
+            System.out.println(biggertrue);
         }
 
         int h = 135798745;
@@ -57,10 +60,13 @@ public class exercise11 {
         int i1 = 10;
         int i2 = 3;
         // tell if i1 is higher than i2 squared and smaller than i2 cubed (print as a boolean)
-
-
-
-
+        if (i1 > i2*i2 && i1 < i2*i2*i2) {
+            boolean middle =true;
+            System.out.println(middle);
+        } else {
+            boolean middle = false;
+            System.out.println(middle);
+        }
 
         int j = 1521;
         // tell if j is dividable by 3 or 5 (print as a boolean)
@@ -70,16 +76,12 @@ public class exercise11 {
         } else {
             boolean dividable =false;
             System.out.println(dividable);
-
         }
 
-
-
-
         String k = "Apple";
-        //fill the k variable with its cotnent 4 times
-
-
-        System.out.println(k);
+        //fill the k variable with its content 4 times
+        for (int i = 0; i < 4; i++) {
+            System.out.println(k);
+        }
     }
 }
