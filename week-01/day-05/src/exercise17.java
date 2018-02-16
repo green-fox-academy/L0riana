@@ -4,10 +4,10 @@ public class exercise17 {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
-        double sum;
+        int sum;
         double average;
 
-        System.out.println("Please, give us five whole numbers here. Press enter after each number.");
+        System.out.println("Please, give me five whole numbers here. Press enter after each number.");
 
         int firstNumber = scanner.nextInt();
         int secondNumber = scanner.nextInt();
