@@ -3,12 +3,13 @@ import java.util.Scanner;
 public class exercise17 {
     public static void main(String[] args) {
 
+        Scanner scanner = new Scanner( System.in);
+
         double sum = 0;
         double average = 0;
         double myNumber;
 
         for(int i=1 ; i<=5 ; i++){
-            Scanner scanner = new Scanner( System.in);
             System.out.println("Enter number" + " " + i +" then press enter.");
             myNumber = scanner.nextDouble();
             sum = sum + myNumber;
