@@ -4,11 +4,10 @@ public class Doubling {
 // - Create a function called `doubling` that doubles it's input parameter and returns with an integer
 // - Print the result of `doubling(ak)`
         int ak = 123;
-        doubling(ak);
+        System.out.println(doubling(ak));
 
-    } public static void doubling(int callAk){
-        callAk = callAk * 2;
-        System.out.println(callAk);
+    } public static int doubling(int toDouble) {
+        toDouble *= 2;
+        return toDouble;
     }
-
 }
