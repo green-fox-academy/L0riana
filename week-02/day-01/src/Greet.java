@@ -4,10 +4,12 @@ public class Greet {
 // - Create a function called `greet` that greets it's input parameter
 //     - Greeting is printing e.g. `Greetings dear, Greenfox`
 // - Greet `al`
-        greet();
-    }
-    public static void greet() {
         String al = "Greenfox";
-        System.out.println("Greeting dear, " + al);
+        System.out.println(greet(al));
+
+    }
+    public static String greet(String toGreet) {
+        toGreet = "Greetings,  dear " + toGreet;
+        return toGreet;
     }
 }
