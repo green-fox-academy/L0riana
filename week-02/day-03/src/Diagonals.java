@@ -4,27 +4,19 @@ import java.awt.*;
 
 import static javax.swing.JFrame.EXIT_ON_CLOSE;
 
-public class ColoredBox {
+public class Diagonals {
   public static void mainDraw(Graphics graphics) {
-    // Draw a box that has different colored lines on each edge.
+    // Draw the canvas' diagonals.
+    // If it starts from the upper-left corner it should be green, otherwise it should be red.
 
-    int a, b;
-    a = 20;
-    b = 200;
-
-    graphics.setColor(Color.RED);
-    graphics.drawLine(a, a, b, a);
 
     graphics.setColor(Color.GREEN);
-    graphics.drawLine(b, a, b, b);
+    graphics.drawLine(0, 0, WIDTH, HEIGHT);
 
-    graphics.setColor(Color.BLUE);
-    graphics.drawLine(b, b, a, b);
-
-    graphics.setColor(Color.YELLOW);
-    graphics.drawLine(a, b, a, a);
-
+    graphics.setColor(Color.RED);
+    graphics.drawLine(WIDTH, 0, 0, HEIGHT);
   }
+
 
   // Don't touch the code below
   static int WIDTH = 320;
@@ -39,11 +31,11 @@ public class ColoredBox {
     jFrame.setVisible(true);
   }
 
-  static class ImagePanel extends JPanel {
-    @Override
-    protected void paintComponent(Graphics graphics) {
-      super.paintComponent(graphics);
-      mainDraw(graphics);
-    }
+static class ImagePanel extends JPanel {
+  @Override
+  protected void paintComponent(Graphics graphics) {
+    super.paintComponent(graphics);
+    mainDraw(graphics);
   }
+}
 }
