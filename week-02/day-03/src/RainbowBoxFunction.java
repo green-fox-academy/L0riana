@@ -1,5 +1,3 @@
-import sun.text.resources.ro.CollationData_ro;
-
 import javax.swing.*;
 
 import java.awt.*;
