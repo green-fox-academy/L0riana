@@ -1,32 +1,25 @@
 import javax.swing.*;
+
 import java.awt.*;
 
 import static javax.swing.JFrame.EXIT_ON_CLOSE;
 
-public class CenterBoxSquare {
+public class PurpleSteps3D {
   public static void mainDraw(Graphics graphics) {
-    // create a square drawing function that takes 1 parameter:
-    // the square size
-    // and draws a square of that size to the center of the canvas.
-    // draw 3 squares with that function.
-    // avoid code duplication.
-
-
-    int size = 50;
-
-    drawRectangles(graphics);
-
+    // Reproduce this:
+    // [https://github.com/greenfox-academy/teaching-materials/blob/master/workshop/drawing/purple-steps/r3.png]
+    int size = 10;
+    int x = 0;
+    int y = 0;
+    for (int i = 0; i < 6; i++) {
+      graphics.setColor(new Color(153, 0, 153));
+      graphics.fillRect(x, y, size, size);
+      x = x + size;
+      y = y + size;
+      size *= 1.5;
+    }
   }
 
-  private static void drawRectangles(Graphics graphics) {
-    int x = WIDTH/2;
-    int y = HEIGHT/2;
-    for (int i = 0; i < 4; i++) {
-      graphics.drawRect(x, y, 20, 20);
-      y = y + 20;
-  }
-
-  }
 
   // Don't touch the code below
   static int WIDTH = 320;
