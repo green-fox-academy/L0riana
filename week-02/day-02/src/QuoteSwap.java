@@ -10,16 +10,13 @@ public class QuoteSwap {
     // Create a method called quoteSwap().
 
     // Also, print the sentence to the output with spaces in between.
-    System.out.println(quoteSwap(list));
+    System.out.println("\"" + quoteSwap(list) + "\"");
     // Expected output: "What I cannot create I do not understand."
 
   }
 
-  private static ArrayList<String> quoteSwap(ArrayList<String> list) {
+  private static String quoteSwap(ArrayList<String> list) {
     Collections.swap(list, 2, 5);
-    for (int i = 0; i < list.size(); i++) {
-      if (
+    return String.join(" ", list);
     }
-    return list;
-  }
 }
