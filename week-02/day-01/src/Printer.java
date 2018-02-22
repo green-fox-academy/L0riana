@@ -1,3 +1,6 @@
+import java.lang.reflect.Array;
+import java.util.Arrays;
+
 public class Printer {
 
   public static void main(String[] args) {
@@ -8,15 +11,12 @@ public class Printer {
     // Examples
     // printer("first")
     // printer("first", "second")
-    // printer("first", "second", "third", "fourth")
+    // printer("first", "second", "third", "fourh")
     // ...
-    String[] words = {"apple", "monkey", "dog", "rabbit"};
-    printer(words);
+    printer("apple", "monkey", "dog", "rabbit");
   }
 
   static void printer(String... words) {
-    System.out.print("printer(");
-    for (String word : words) System.out.print("\"" + word + "\", ");
-    System.out.print(")");
+    System.out.println(Arrays.toString(words));
   }
 }
