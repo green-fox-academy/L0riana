@@ -21,7 +21,7 @@ public class CenterBoxSquare {
   private static void drawRectangles(Graphics graphics) {
     int x = WIDTH/2;
     int y = HEIGHT/2;
-    for (int i = 0; i < 4; i++) {
+    for (int i = 0; i < 3; i++) {
       graphics.drawRect(x, y, 20, 20);
       y = y + 20;
   }
