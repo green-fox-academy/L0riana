@@ -1,7 +1,7 @@
 import java.util.*;
 
-public class CandyShop{
-  public static void main(String... args){
+public class CandyShop {
+  public static void main(String... args) {
     ArrayList<Object> arrayList = new ArrayList<Object>();
     arrayList.add("Cupcake");
     arrayList.add(2);
@@ -18,15 +18,9 @@ public class CandyShop{
     // Expected output: "Cupcake", "Croissant", "Brownie", "Ice cream"
   }
 
-  private static boolean sweets(ArrayList<Object> arrayList) {
-    arrayList.toString();
-    for (int i = 0; i < arrayList.size(); i++) {
-       if () {
-
-
-    }arrayList.add(1, "Croissant");
-
-
+  private static ArrayList<Object> sweets(ArrayList<Object> arrayListNew) {
+    arrayListNew.set(1, "Croissant");
+    arrayListNew.set(3, "Ice cream");
+    return arrayListNew;
   }
-}
 }
