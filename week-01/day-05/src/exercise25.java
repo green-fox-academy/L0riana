@@ -22,7 +22,7 @@ public class exercise25 {
         System.out.println("Please, enter your number: ");
         int myNumber = scanner.nextInt();
 
-        for (int i = 0; i < 11; i++) {
+        for (int i = 0; i <= 10; i++) {
             System.out.println(myNumber + " * " + i + " = " + i*myNumber);
         }
     }
