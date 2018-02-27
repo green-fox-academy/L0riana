@@ -2,10 +2,9 @@ import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
-import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.util.*;
-import java.util.stream.Collectors;
+
+import static com.sun.jmx.snmp.ThreadContext.contains;
 
 public class Logs {
   public static void main(String[] args) {
@@ -42,23 +41,37 @@ public class Logs {
   }
 
   private static void requestRatio() {
-    /*int countGet = 0;
-    int countPost = 0;
+    String line;
+    ArrayList<String> requests = new ArrayList<>();
+    ArrayList<String> get = new ArrayList<>();
+    ArrayList<String> post = new ArrayList<>();
+    int getNr = 0;
+    int postNr = 0;
+
     try {
       FileReader fr = new FileReader("log.txt");
       BufferedReader br = new BufferedReader(fr);
-      String line = br.readLine();
       while ((line = br.readLine()) != null) {
         line.split("\\s+");
-        String[] columns = line.split(" ");
-        while (fr.hasNextLine()) {
-          String nextToken = scanner.next();
-          if (nextToken.equalsIgnoreCase())
-            count++;
-        }
+        requests.add(line.split("\\s+")[6]);
+        String[] requestArray = (String[]) requests.toArray();
       }
+      System.out.println(requests);
+      for (int i = 0; i < requests.toArray().length; i++) {
+        if (requests.contains("GET")){
+          getNr++;
+        }
+
+      }for (int i = 0; i < requests.size(); i++) {
+        if (requests.contains("POST")) {
+          postNr++;
+        }
+      }int requestNr = getNr/postNr;
+      System.out.println(getNr);
+      System.out.println(postNr);
+      System.out.println(requestNr);
     } catch (IOException e) {
-      e.printStackTrace();
-    */
+      System.out.println("File not found!");
+    }
   }
 }
