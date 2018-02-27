@@ -24,7 +24,6 @@ public class WriteMultipleLines {
 
   private static void getParameters(String path, String word, int number) {
     try {
-      Path myPath = Paths.get(path);
       Files.write(Paths.get(path), word.getBytes(), new StandardOpenOption[]{StandardOpenOption.APPEND});
       for (int i = 0; i < number; i++) {
         System.out.println(word);

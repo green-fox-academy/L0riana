@@ -2,6 +2,7 @@ import java.io.IOException;
 import java.nio.file.*;
 
 import static java.nio.file.StandardCopyOption.REPLACE_EXISTING;
+import static java.nio.file.StandardOpenOption.APPEND;
 
 public class CopyFile {
   public static void main(String[] args) {
@@ -13,7 +14,7 @@ public class CopyFile {
     copyFile(path1,path2);
   }
 
-  private static boolean copyFile(String path1, String path2) {
+  private static void copyFile(String path1, String path2) {
     try {
       Path pathFrom = Paths.get(path1);
       Path pathTo = Paths.get(path2);
@@ -22,7 +23,5 @@ public class CopyFile {
     } catch (IOException e) {
     } finally {
     }
-
-    return false;
   }
 }
