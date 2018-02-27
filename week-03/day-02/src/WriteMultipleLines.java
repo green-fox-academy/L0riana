@@ -41,7 +41,6 @@ public class WriteMultipleLines {
         System.out.println(word);
       }
     } catch (IOException e) {
-      System.out.println("Unable to write file: my-file.txt");
     } finally {
     }
   }
