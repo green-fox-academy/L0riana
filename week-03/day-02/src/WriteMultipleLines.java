@@ -20,17 +20,6 @@ public class WriteMultipleLines {
     String word = "Yesss";
     int number = 5;
     getParameters(path, word, number);
-    /*String myName = "Julianna Serly";
-    try {
-
-      Files.write(path1, myName.getBytes(),StandardOpenOption.APPEND);
-      for (String line : Files.readAllLines(path1)) {
-        System.out.println(line);
-      }
-    } catch (IOException e) {
-      System.out.println("Unable to write file: my-file.txt");
-    } finally {
-    */
   }
 
   private static void getParameters(String path, String word, int number) {
