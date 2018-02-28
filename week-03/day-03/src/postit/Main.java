@@ -17,5 +17,7 @@ public class Main {
     PostIt postIt3 = new PostIt("yellow", "Superb", "green");
 
     System.out.println(postIt1.toString());
+    System.out.println(postIt2.toString());
+    System.out.println(postIt3.toString());
   }
 }
