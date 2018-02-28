@@ -1,6 +1,8 @@
 /**
  * Created by aze on 2017.03.29..
  */
+package FleetOfThings;
+
 public class Thing {
   private String name;
   private boolean completed;
