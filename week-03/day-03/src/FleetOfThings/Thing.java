@@ -1,7 +1,7 @@
 /**
  * Created by aze on 2017.03.29..
  */
-package FleetOfThings;
+package fleetofthings;
 
 public class Thing {
   private String name;

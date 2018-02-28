@@ -1,4 +1,4 @@
-package FleetOfThings;
+package fleetofthings;
 
 import java.util.ArrayList;
 

@@ -1,9 +1,9 @@
-package Dice;
+package dice;
 
 import java.util.Arrays;
 
 public class Dice {
-  //    You have a Dice class which has 6 dice
+  //    You have a dice class which has 6 dice
   //    You can roll all of them with roll()
   //    Check the current rolled numbers with getCurrent()
   //    You can reroll with reroll()
@@ -58,7 +58,7 @@ public class Dice {
   }
   @Override
   public String toString() {
-    return "Dice{" +
+    return "dice{" +
             "dices = " + Arrays.toString(dices) +
             '}';
   }
