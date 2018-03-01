@@ -14,7 +14,6 @@ public class Counter {
     if (n == 0) {
       return 0;
     } else {
-      if (n == n);
       System.out.println(n);
       return counter(n - 1);
     }
