@@ -13,14 +13,11 @@ public class String1 {
   }
 
   public static String correctString(String text, char from, char to) {
-    if (text.length() == 0)
+    if (text.length() < 1)
       return text;
-    for (int i = 0; i < text.length(); i++) {
-      if (text.charAt(i) == from) {
-        text = text.substring(0, i) + to + text.substring(++i);
-        return correctString(text, from, to);
-      }
+    if (text.charAt(0) == from) {
+      text = to + text.substring(1);
     }
-    return text;
+    return text.charAt(0) + correctString(text.substring(1, text.length()), from, to);
   }
 }
