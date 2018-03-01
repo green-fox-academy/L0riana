@@ -1,7 +1,7 @@
 public class String2 {
   public static void main(String[] args) {
     // Given a string, compute recursively a new string where all the 'x' chars have been removed.
-    String text = "xyoxlkx is xyellxxow";
+    String text = "xyoxlkx is xyellxow";
     char remove = 'x';
 
     System.out.println(text);
