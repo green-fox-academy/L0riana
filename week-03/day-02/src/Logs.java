@@ -14,7 +14,6 @@ public class Logs {
     // Write a function that returns the GET / POST request ratio.
     uniqueAddress();
     requestRatio();
-
   }
 
   private static void uniqueAddress() {
@@ -31,10 +30,6 @@ public class Logs {
       for (String element : uniqueIP) {
         System.out.println(element);
       }
-      /*List<String> uniqueIP = addressIPs.stream().distinct().collect(Collectors.toList());
-      for (String element : uniqueIP) {
-        System.out.println(element);
-      }*/
     } catch (IOException e) {
       System.out.println("File not found!");
     }
@@ -43,33 +38,22 @@ public class Logs {
   private static void requestRatio() {
     String line;
     ArrayList<String> requests = new ArrayList<>();
-    ArrayList<String> get = new ArrayList<>();
-    ArrayList<String> post = new ArrayList<>();
     int getNr = 0;
     int postNr = 0;
-
     try {
       FileReader fr = new FileReader("log.txt");
       BufferedReader br = new BufferedReader(fr);
       while ((line = br.readLine()) != null) {
         line.split("\\s+");
         requests.add(line.split("\\s+")[6]);
-        String[] requestArray = (String[]) requests.toArray();
+        getNr = Collections.frequency(requests, "GET");
+        postNr = Collections.frequency(requests, "POST");
       }
-      System.out.println(requests);
-      for (int i = 0; i < requests.toArray().length; i++) {
-        if (requests.contains("GET")){
-          getNr++;
-        }
-
-      }for (int i = 0; i < requests.size(); i++) {
-        if (requests.contains("POST")) {
-          postNr++;
-        }
-      }int requestNr = getNr/postNr;
-      System.out.println(getNr);
-      System.out.println(postNr);
-      System.out.println(requestNr);
+      System.out.println(requests.size());
+      double requestRatio = (double)getNr / (double)postNr;
+      System.out.println("Number of GETs: " + getNr);
+      System.out.println("Number of POSs: " + postNr);
+      System.out.println("GET/POST ratio: "+ requestRatio);
     } catch (IOException e) {
       System.out.println("File not found!");
     }
