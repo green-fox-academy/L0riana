@@ -18,27 +18,22 @@ public class Animal {
     thirst = 50;
   }
 
-  public int eat() {
+  public void eat() {
     hunger++;
-    return hunger;
   }
 
-  public int drink() {
+  public void drink() {
     thirst++;
-    return thirst;
   }
 
-  public int play() {
+  public void play() {
     hunger--;
     thirst--;
-    return hunger;
   }
 
-  public int getHunger() {
-    return hunger;
-  }
-
-  public int getThirst() {
-    return thirst;
+  @Override
+  public String toString() {
+    return "hunger = " + hunger +
+            "; thirst = " + thirst;
   }
 }

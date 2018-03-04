@@ -10,13 +10,8 @@ public class Sharpie {
     this.color = color;
     this.width = width;
   }
-  public float use(){
+  public void use(){
     inkAmount -= 5;
-    return inkAmount;
-  }
-
-  public float getInkAmount(){
-    return inkAmount;
   }
 
   @Override

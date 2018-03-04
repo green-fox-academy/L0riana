@@ -7,14 +7,12 @@ public class Main {
     Animal tiger = new Animal();
 
     tiger.eat();
-    tiger.drink();
+    System.out.println(tiger);
 
-    System.out.println(tiger.getHunger());
-    System.out.println(tiger.getThirst());
+    tiger.drink();
+    System.out.println(tiger);
 
     tiger.play();
-
-    System.out.println(tiger.getHunger());
-    System.out.println(tiger.getThirst());
+    System.out.println(tiger);
   }
 }

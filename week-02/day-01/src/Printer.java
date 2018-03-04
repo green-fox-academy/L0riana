@@ -17,6 +17,7 @@ public class Printer {
   }
 
   static void printer(String... words) {
+
     System.out.println(Arrays.toString(words));
   }
 }
