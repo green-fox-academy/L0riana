@@ -18,7 +18,7 @@ public class GoToCenter {
   }
 
   public static void drawLines(Graphics graphics, int x, int y) {
-    for (int i = 0; i < 4; i++) {
+    for (int i = 0; i < 3; i++) {
       graphics.drawLine(x, y, WIDTH / 2, HEIGHT / 2);
       x = x + WIDTH / 3;
     }

@@ -13,9 +13,9 @@ public class String1 {
   }
 
   public static String correctString(String text, char from, char to) {
-    if (text.length() < 1)
+    if (text.length() == 1) {
       return text;
-    if (text.charAt(0) == from) {
+    } else if (text.charAt(0) == from) {
       text = to + text.substring(1);
     }
     return text.charAt(0) + correctString(text.substring(1, text.length()), from, to);

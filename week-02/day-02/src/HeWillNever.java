@@ -24,8 +24,7 @@ public class HeWillNever {
     String text;
 
     for (int i = 0; i <notSoCrypticMessage.length ; i++) {
-      temp = notSoCrypticMessage[i];
-      text = map.get(temp);
+      text = map.get(notSoCrypticMessage[i]);
       out += text;
     }
     System.out.println(out);

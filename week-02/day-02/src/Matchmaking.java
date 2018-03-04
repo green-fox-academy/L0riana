@@ -6,7 +6,7 @@ public class Matchmaking {
     ArrayList<String> boys = new ArrayList<String>(Arrays.asList("Joe", "Fred", "Béla", "Todd", "Neef", "Jeff"));
 
     // Write a method that joins the two lists by matching one girl with one boy into a new list
-    // Exepected output: "Eve", "Joe", "Ashley", "Fred"...
+    // Expected output: "Eve", "Joe", "Ashley", "Fred"...
 
     System.out.println(makingMatches(girls, boys));
   }

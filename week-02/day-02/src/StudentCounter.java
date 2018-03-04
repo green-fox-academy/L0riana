@@ -1,5 +1,7 @@
 import java.util.*;
 
+import static javax.xml.bind.DatatypeConverter.parseDouble;
+
 public class StudentCounter{
   public static void main(String... args){
     ArrayList<Map<String, Object>> map = new ArrayList<Map<String, Object>>();
@@ -53,7 +55,9 @@ public class StudentCounter{
       if ((int)map.get(i).get("candies") > 4) {
         System.out.println(map.get(i).get("name"));
       }
-      if ((int)map.get(i).get("candies") < 5) sum += Double.valueOf(map.get(i).get("age").toString());
+      if ((int)map.get(i).get("candies") < 5) {
+        sum += parseDouble(map.get(i).get("age").toString());
+      }
     }
     System.out.println("What is the sum of age of those who have less than 5 candies?\n" + sum);
   }
