@@ -28,14 +28,16 @@ public class DrawPyramid29 {
       for (int j = 0; j < number - i; j++) {
         System.out.print(" ");
       }
-      */System.out.print("\n");
-      for (int i = 1; i <= number; i++) {
-        for (int j = number - i; j > 0; j--) {
-          System.out.print(" ");
-        } for (int k = (i * 2) - 1; k > 0; k--) {
-          System.out.print("*");
-        }
-        System.out.println();
+      */
+    System.out.print("\n");
+    for (int i = 1; i <= number; i++) {
+      for (int j = number - i; j > 0; j--) {
+        System.out.print(" ");
+      }
+      for (int k = (i * 2) - 1; k > 0; k--) {
+        System.out.print("*");
+      }
+      System.out.println();
     }
   }
 }

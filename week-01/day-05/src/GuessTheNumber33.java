@@ -14,12 +14,12 @@ public class GuessTheNumber33 {
     Scanner userInput = new Scanner(System.in);
     Random generator = new Random();
     random = generator.nextInt(100);
-    attempts = 1;
+    attempts = 0;
 
     System.out.println("I am thinking of a number between 0 and 100, what do you think it is? You have 10 attempts.");
 
     guess = userInput.nextInt();
-    while (guess != random && attempts < 10) {
+    while (guess != random && attempts < 4) {
       if (guess > random) {
         System.out.println("lower");
         attempts++;
@@ -28,6 +28,10 @@ public class GuessTheNumber33 {
         attempts++;
       }guess = userInput.nextInt();
     }
-    System.out.println("You found the number: " + random + ". Congrats!");
+    if (guess == random && attempts < 4) {
+      System.out.println("You found the number: " + random + ". Congrats!");
+    }else {
+      System.out.println("You haven't found the number. Restart if you want to play again.");
+    }
   }
 }

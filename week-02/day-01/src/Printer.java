@@ -16,7 +16,7 @@ public class Printer {
     printer("apple", "monkey", "dog", "rabbit");
   }
 
-  static void printer(String... words) {
+  public static void printer(String... words) {
 
     System.out.println(Arrays.toString(words));
   }

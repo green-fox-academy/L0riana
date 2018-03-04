@@ -5,13 +5,13 @@ public class exercise17 {
 
     Scanner scanner = new Scanner(System.in);
 
-    double sum = 0;
+    int sum = 0;
     double average = 0;
-    double myNumber;
+    int myNumber;
 
     for (int i = 1; i <= 5; i++) {
       System.out.println("Enter number" + " " + i + " then press enter.");
-      myNumber = scanner.nextDouble();
+      myNumber = scanner.nextInt();
       sum = sum + myNumber;
       average = sum / 5;
     }

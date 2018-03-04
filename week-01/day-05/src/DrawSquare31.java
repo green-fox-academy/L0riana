@@ -22,9 +22,7 @@ public class DrawSquare31 {
       for (int j = 0; j < number; j++) {
         if (i == 0 || i == number - 1) {
           System.out.print("%");
-        } else if (j == 0) {
-          System.out.print("%");
-        } else if (j == number - 1) {
+        } else if (j == 0 || (j == number - 1)) {
           System.out.print("%");
         } else {
           System.out.print(" ");

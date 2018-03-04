@@ -11,8 +11,10 @@ public class DrawChessTable35 {
     // % % % %
     //  % % % %
     //
-    for (int i = 0; i < 8; i++) {
-      for (int j = 0; j < 4; j++) {
+    int lines = 8;
+    int columns = 4;
+    for (int i = 0; i < lines; i++) {
+      for (int j = 0; j < columns; j++) {
         if (i % 2 == 0) {
           System.out.print("% ");
         } else {
