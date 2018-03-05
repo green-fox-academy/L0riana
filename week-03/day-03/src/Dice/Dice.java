@@ -22,7 +22,7 @@ public class Dice {
     int countRound = 0;
 
     for (int i = 0; i < myDice.dices.length; i++) {
-      while (myDice.getCurrent(i) != 6){
+      while (myDice.getCurrent(i) != 6) {
         myDice.reroll(i);
         System.out.println("Check values in each round: " + myDice.toString());
         countRound++;
@@ -56,6 +56,7 @@ public class Dice {
   public void reroll(int k) {
     dices[k] = (int) (Math.random() * 6) + 1;
   }
+
   @Override
   public String toString() {
     return "dice{" +

@@ -22,11 +22,10 @@ public class WriteMultipleLines {
     getParameters(path, word, number);
   }
 
-  private static void getParameters(String path, String word, int number) {
+  private static void getParameters(String path1, String word, int number) {
     try {
-      Files.write(Paths.get(path), word.getBytes(), new StandardOpenOption[]{StandardOpenOption.APPEND});
       for (int i = 0; i < number; i++) {
-        System.out.println(word);
+        Files.write(Paths.get(path1), word.getBytes(), APPEND);
       }
     } catch (IOException e) {
     } finally {

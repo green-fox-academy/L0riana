@@ -15,7 +15,7 @@ public class WriteSingleLine {
     String myName = "Julianna Serly";
     try {
       Path path1 = Paths.get("my-file.txt");
-      Files.write(path1, myName.getBytes(),StandardOpenOption.APPEND);
+      Files.write(path1, myName.getBytes(), StandardOpenOption.APPEND);
       for (String line : Files.readAllLines(path1)) {
         System.out.println(line);
       }
