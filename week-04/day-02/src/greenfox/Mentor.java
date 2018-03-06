@@ -2,10 +2,12 @@ package greenfox;
 
 public class Mentor extends Person {
 
-  public String level;
+  protected String level;
 
   public Mentor(String name, int age, String gender, String level) {
-    super();
+    this.name = name;
+    this.age = age;
+    this.gender = gender;
     this.level = level;
   }
 
@@ -13,7 +15,7 @@ public class Mentor extends Person {
     super();
     level = "intermediate";
   }
-  @Override
+
   public void introduce() {
     System.out.println("Hi, I'm " + name + ", a " + age + " year old " + gender + " " + level + " mentor.");
   }
