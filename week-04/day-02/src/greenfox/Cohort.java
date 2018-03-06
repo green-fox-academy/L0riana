@@ -3,7 +3,7 @@ package greenfox;
 import java.util.ArrayList;
 
 public class Cohort extends Student {
-  protected String name;
+  private String name;
   ArrayList<String> students = new ArrayList<String>();
   ArrayList<String> mentors = new ArrayList<String>();
 
@@ -15,7 +15,6 @@ public class Cohort extends Student {
     this.name = name;
     students.isEmpty();
     mentors.isEmpty();
-
   }
 
   public void addStudent(Student student) {
@@ -25,4 +24,15 @@ public class Cohort extends Student {
   public void addMentor(Mentor mentor) {
     mentors.add(name);
   }
+
+  @Override
+  public String getName() {
+    return name;
+  }
+
+  @Override
+  public void setName(String name) {
+    this.name = name;
+  }
+
 }

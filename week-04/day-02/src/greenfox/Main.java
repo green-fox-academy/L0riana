@@ -37,7 +37,6 @@ public class Main {
     for (Person person : people) {
       person.introduce();
       person.getGoal();
-
     }
 
     Cohort awesome = new Cohort("AWESOME");

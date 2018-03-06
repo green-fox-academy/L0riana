@@ -2,24 +2,23 @@ package greenfox;
 
 public class Sponsor extends Person {
 
-  protected String company;
-  protected int hiredStudents;
+  private String company;
+  private int hiredStudents;
 
   public Sponsor(String name, int age, String gender, String company) {
-    this.name = name;
-    this.age = age;
-    this.gender = gender;
+    super(name, age, gender);
     this.company = company;
     this.hiredStudents = 0;
   }
 
   public Sponsor() {
+    super();
     hiredStudents = 0;
     company = "Google";
   }
 
   public void introduce() {
-    System.out.println("Hi, I'm " + name + ", a " + age + " old " + gender + " who represents " + company +
+    System.out.println("Hi, I'm " + getName() + ", a " + getAge() + " old " + getGender() + " who represents " + company +
             " and hired " + hiredStudents + " students so far.");
   }
 
