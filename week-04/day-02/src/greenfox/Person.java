@@ -1,9 +1,9 @@
-package homework;
+package greenfox;
 
 public class Person {
-  private String name;
-  private int age;
-  private String gender;
+  public String name;
+  public int age;
+  public String gender;
 
   public Person(String name, int age, String gender) {
     this.name = name;

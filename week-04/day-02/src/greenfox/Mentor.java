@@ -1,25 +1,19 @@
-package homework;
+package greenfox;
 
 public class Mentor extends Person {
-  private String name;
-  private int age;
-  private String gender;
-  private String level;
+
+  public String level;
 
   public Mentor(String name, int age, String gender, String level) {
-    this.name = name;
-    this.age = age;
-    this.gender = gender;
+    super();
     this.level = level;
   }
 
   public Mentor() {
-    name = "Jane Doe";
-    age = 30;
-    gender = "female";
+    super();
     level = "intermediate";
   }
-
+  @Override
   public void introduce() {
     System.out.println("Hi, I'm " + name + ", a " + age + " year old " + gender + " " + level + " mentor.");
   }
