@@ -1,6 +1,6 @@
 package dominoes;
 
-public class Domino implements Comparable <Domino> {
+public class Domino implements Comparable<Domino> {
   private final int[] values;
 
   public Domino(int valueA, int valueB) {
@@ -18,9 +18,15 @@ public class Domino implements Comparable <Domino> {
 
   @Override
   public int compareTo(Domino domino) {
-    if (values[0] == domino.values[0])
-      return 0;
-    else if (values[0] > domino.values[0])
+    if (values[0] == domino.values[0]) {
+      if (values[1] == domino.values[1]) {
+        return 0;
+      } else if (values[1] > domino.values[1]) {
+        return 1;
+      } else {
+        return -1;
+      }
+    } else if (values[0] > domino.values[0])
       return 1;
     else
       return -1;
