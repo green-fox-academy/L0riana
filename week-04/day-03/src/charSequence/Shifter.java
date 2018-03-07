@@ -1,7 +1,10 @@
 package charSequence;
 
 public class Shifter implements CharSequence {
+  String example;
+
   public Shifter(String example, int i) {
+    this.example = example;
   }
 
   @Override
@@ -16,6 +19,6 @@ public class Shifter implements CharSequence {
 
   @Override
   public CharSequence subSequence(int start, int end) {
-    return null;
+    return example.substring(2, end);
   }
 }

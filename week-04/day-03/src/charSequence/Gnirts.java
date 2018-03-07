@@ -1,7 +1,10 @@
 package charSequence;
 
 public class Gnirts implements CharSequence {
+  String example;
+
   public Gnirts(String example) {
+    this.example = example;
   }
 
   @Override
@@ -11,8 +14,7 @@ public class Gnirts implements CharSequence {
 
   @Override
   public char charAt(int index) {
-
-    return 0;
+    return example.charAt(example.length() - index - 1);
   }
 
   @Override
