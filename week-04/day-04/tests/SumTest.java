@@ -6,8 +6,8 @@ import static org.junit.Assert.*;
 
 public class SumTest {
 
-  Sum sumTest = new Sum();
-  ArrayList<Integer> list1 = new ArrayList<>();
+  private Sum sumTest = new Sum();
+  private ArrayList<Integer> list1 = new ArrayList<>();
 
   @Test
   public void sumTestEmptyList() {

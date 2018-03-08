@@ -3,7 +3,7 @@ import java.util.List;
 
 public class Sum {
 
-  ArrayList<Integer> list1;
+  private ArrayList<Integer> list1;
 
   public Sum(){
     this.list1 = new ArrayList<>();
