@@ -7,10 +7,6 @@ public class Domino implements Comparable<Domino> {
     this.values = new int[]{valueA, valueB};
   }
 
-  public int[] getValues() {
-    return values;
-  }
-
   @Override
   public String toString() {
     return "[" + values[0] + ", " + values[1] + "]";
