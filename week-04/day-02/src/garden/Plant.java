@@ -23,6 +23,7 @@ public class Plant {
       System.out.println("The " + color + " " + type + " doesn't need water.");
     }
   }
+  //public void getWateringTreshold();
 
   public void watering() {
     // for each elements of flowers and trees arraylists, water plants by
