@@ -16,8 +16,8 @@ public class Crashes {
     // And print the return value to the console:
     // The amount of crashes at good weather conditions: {amount}
     // The amount of crashes at bad weather conditions: {amount}
-    Path pathCrashIncidents = Paths.get("crash-incidents.csv");
-    System.out.println(weatherCount(pathCrashIncidents));;
+    Path pathCrashIncidents = Paths.get("crash-incidents.txt");
+    System.out.println(weatherCount(pathCrashIncidents));
   }
   
   public static String weatherCount(Path pathCrashIncidents) {
@@ -28,13 +28,9 @@ public class Crashes {
       lines = Files.readAllLines(pathCrashIncidents);
       for (String line : lines) {
         if (line.contains("CLOUDY") ||
-                (line.contains("CLEAN"))) {
+                (line.contains("CLEAR"))) {
           countGood++;
-        } else if (line.contains("RAIN") ||
-                (line.contains("FREEZING RAIN") ||
-                        (line.contains("SNOW") ||
-                                (line.contains("FOG") ||
-                                        (line.contains("SEVERE CROSSWINDS")))))) {
+        } else {
           countBad++;
         }
       }
