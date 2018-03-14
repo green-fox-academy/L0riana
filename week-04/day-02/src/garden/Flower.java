@@ -13,11 +13,10 @@ public class Flower extends Plant {
     }
   }
 
-  public void setWaterLevel(int addWaterAmount) {
+  //public int setWaterLevel(int addWaterAmount) {
     //returns the currentWaterLevel
-
   }
-}
+
 
 
 
