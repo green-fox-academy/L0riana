@@ -2,51 +2,17 @@ package fishtank;
 
 public class Fish {
   //Each fish has a name, weight, color and has a status and feed method.
-  private String name;
-  private int weight;
-  private String color;
-  private boolean shortTermMemoryLoss;
+  protected String name;
+  protected int weight;
+  protected String color1;
+  protected String color2;
+  protected boolean shortTermMemoryLoss;
   private int weightGain;
 
-  public Fish() {
+  public Fish(String name, int weight, String color1) {
     this.name = name;
-    this.weight = 0;
-    this.color = color;
-  }
-
-  public Fish(boolean ShortTermMemoryLoss) {
-    ShortTermMemoryLoss = true;
-  }
-
-  public String getStatus(){
-    return "Name: " + name + ", Weight: " + weight + ", color " + color;
-  }
-
-  public int feed(){
-    return weight++;
-  }
-
-  public String getName() {
-    return name;
-  }
-
-  public void setName(String name) {
-    this.name = name;
-  }
-
-  public int getWeight() {
-    return weight;
-  }
-
-  public void setWeight(int weight) {
     this.weight = weight;
+    this.color1 = color1;
   }
 
-  public String getColor() {
-    return color;
-  }
-
-  public void setColor(String color) {
-    this.color = color;
-  }
 }
