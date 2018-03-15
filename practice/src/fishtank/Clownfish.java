@@ -2,8 +2,15 @@ package fishtank;
 
 public class Clownfish extends Fish {
 
-  public Clownfish(String name,int weight, String color, String color2) {
+  protected String stripeColor;
+
+  public Clownfish(String name, int weight, String color, String stripeColor) {
     super(name, weight, color);
-    this.color2 = color2;
+    this.stripeColor = stripeColor;
+  }
+
+  @Override
+  public String status() {
+    return super.status() + ", stripe color: " + stripeColor;
   }
 }
