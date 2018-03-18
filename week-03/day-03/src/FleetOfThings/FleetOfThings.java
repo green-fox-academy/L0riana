@@ -9,16 +9,16 @@ public class FleetOfThings {
     // 2. [ ] Remove the obstacles
     // 3. [x] Stand up
     // 4. [x] Eat lunch
-    Thing milk = new Thing("Get milk");
-    fleet.add(milk);
-    Thing remove = new Thing("Remove the obstacles");
-    fleet.add(remove);
-    Thing stand = new Thing("Stand up");
-    fleet.add(stand);
-    stand.complete();
-    Thing eatLunch = new Thing ("Eat Lunch");
-    fleet.add(eatLunch);
-    eatLunch.complete();
+    Thing thing1 = new Thing("Get milk");
+    fleet.add(thing1);
+    Thing thing2 = new Thing("Remove the obstacles");
+    fleet.add(thing2);
+    Thing thing3 = new Thing("Stand up");
+    fleet.add(thing3);
+    thing3.complete();
+    Thing thing4 = new Thing("Eat Lunch");
+    fleet.add(thing4);
+    thing4.complete();
 
     System.out.println(fleet);
   }
