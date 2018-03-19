@@ -4,14 +4,33 @@ public class Sharpie {
 
   private String color;
   private float width;
-  private float inkAmount = 100;
+  private float inkAmount;
 
   public Sharpie(String color, float width) {
     this.color = color;
     this.width = width;
   }
-  public void use(){
-    inkAmount -= 5;
+
+  public Sharpie(String color, float width, float inkAmount) {
+    this.color = color;
+    this.width = width;
+    this.inkAmount = inkAmount;
+  }
+
+  public void use() {
+    if (inkAmount > 5) {
+      inkAmount -= 5;
+    } else {
+      inkAmount = 0;
+    }
+  }
+
+  public float getInkAmount() {
+    return inkAmount;
+  }
+
+  public void setInkAmount(float inkAmount) {
+    this.inkAmount = inkAmount;
   }
 
   @Override
