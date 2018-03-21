@@ -5,7 +5,7 @@ import java.util.List;
 
 public class Aquarium {
 
-  protected List<Fish> fishes;
+  private List<Fish> fishes;
 
   public Aquarium() {
     fishes = new ArrayList<>();

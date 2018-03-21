@@ -10,6 +10,4 @@ public class Ship {
   public Ship() {
     pirateList = new ArrayList<>();
   }
-
-
 }

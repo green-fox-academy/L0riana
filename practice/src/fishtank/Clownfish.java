@@ -2,7 +2,7 @@ package fishtank;
 
 public class Clownfish extends Fish {
 
-  protected String stripeColor;
+  private String stripeColor;
 
   public Clownfish(String name, int weight, String color, String stripeColor) {
     super(name, weight, color);

@@ -18,8 +18,8 @@ public class Student extends Person {
   }
 
   public void introduce() {
-    System.out.println("Hi, I'm " + getName() + ", a " + getAge() + " old " + getGender() + " from " + previousOrganization +
-            " who skipped " + skippedDays + " from the course already.");
+    System.out.println("Hi, I'm " + getName() + ", a " + getAge() + " year old " + getGender() + " from " + previousOrganization +
+            " who skipped " + skippedDays + " days from the course already.");
   }
 
   public void getGoal() {

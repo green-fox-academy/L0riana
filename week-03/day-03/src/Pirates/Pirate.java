@@ -5,11 +5,13 @@ public class Pirate {
   private String name;
   private int intoxicationLevel;
   private boolean isDead;
+  private boolean ableToFight;
 
   public Pirate(String name) {
     this.name = name;
     this.intoxicationLevel = 0;
     this.isDead = false;
+    this.ableToFight = true;
   }
 
   public void drinkSomeRum() {
@@ -25,27 +27,28 @@ public class Pirate {
       if (intoxicationLevel < 4) {
         return "Pour me anudder!";
       } else {
+        ableToFight = false;
         return "Arghh, I'ma Pirate. How d'ya d'ink its goin?";
       }
     }
     return "He's dead.";
-
   }
+
   public void die() {
     isDead = true;
   }
 
-  public void brawl(Pirate otherPirate){
+  public String brawl(Pirate otherPirate) {
     double random = Math.random();
-    if (random > 0.67){
+    if (random > 0.67) {
       this.die();
-      System.out.println(name + " died.");
-    }else if(random < 0.33) {
+      return name + " died.";
+    } else if (random < 0.33) {
       otherPirate.die();
-      System.out.println(otherPirate.name + " died.");
-    }else {
-      System.out.println("Both pirates passed out.");
+      return otherPirate.name + " died.";
+    } else {
+      ableToFight = false;
+      return "Both pirates passed out.";
     }
-
   }
 }

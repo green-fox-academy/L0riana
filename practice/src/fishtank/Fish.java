@@ -1,9 +1,9 @@
 package fishtank;
 
 public class Fish {
-  protected String name;
-  protected int weight;
-  protected String color;
+  private String name;
+  private int weight;
+  private String color;
 
   public Fish(String name, int weight, String color) {
     this.name = name;

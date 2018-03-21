@@ -2,7 +2,7 @@ package fishtank;
 
 public class Tang extends Fish {
 
-  protected boolean shortTermMemoryLoss;
+  private boolean shortTermMemoryLoss;
 
   public Tang(String name, int weight, String color, boolean shortTermMemoryLoss) {
     super(name, weight, color);
