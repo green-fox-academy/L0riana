@@ -17,10 +17,6 @@ public class BlogPost {
   @Override
   public String toString() {
     return "BlogPost{" +
-            "authorName = '" + authorName + '\'' +
-            ", title = '" + title + '\'' +
-            ", publicationDate = '" + publicationDate + '\'' +
-            ", text = '" + text + '\'' +
-            '}';
+            "authorName = '" + authorName + '}';
   }
 }
