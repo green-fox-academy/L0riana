@@ -6,11 +6,6 @@ public class Sharpie {
   private float width;
   private float inkAmount;
 
-  public Sharpie(String color, float width) {
-    this.color = color;
-    this.width = width;
-  }
-
   public Sharpie(String color, float width, float inkAmount) {
     this.color = color;
     this.width = width;
@@ -27,10 +22,6 @@ public class Sharpie {
 
   public float getInkAmount() {
     return inkAmount;
-  }
-
-  public void setInkAmount(float inkAmount) {
-    this.inkAmount = inkAmount;
   }
 
   @Override

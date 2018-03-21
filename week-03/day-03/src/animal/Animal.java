@@ -14,26 +14,34 @@ public class Animal {
   private int thirst;
 
   public Animal() {
-    hunger = 50;
-    thirst = 50;
+    hunger = 5;
+    thirst = 5;
   }
 
   public void eat() {
-    hunger++;
+    hunger--;
   }
 
   public void drink() {
-    thirst++;
+    thirst--;
   }
 
   public void play() {
-    hunger--;
-    thirst--;
+    hunger++;
+    thirst++;
   }
 
   @Override
   public String toString() {
     return "hunger = " + hunger +
-            "; thirst = " + thirst;
+            ", thirst = " + thirst;
+  }
+
+  public int getHunger() {
+    return hunger;
+  }
+
+  public void setHunger(int hunger) {
+    this.hunger = hunger;
   }
 }
