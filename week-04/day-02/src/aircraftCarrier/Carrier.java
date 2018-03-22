@@ -19,21 +19,22 @@ public class Carrier {
   }
 
   public void fill() {
-    if (ammoStorage > 0) {
+    if (ammoStorage == 0) {
+      throw new RuntimeException("There is no ammo.");
+    } else if (ammoStorage > 0) {
       for (int i = 0; i < aircrafts.size(); i++) {
         if (aircrafts.get(i).isPriority()) {
           ammoStorage = aircrafts.get(i).refill(ammoStorage);
         }
-        for (int j = 0; j < aircrafts.size(); j++) {
-          if (!aircrafts.get(j).isPriority()) {
-            ammoStorage = aircrafts.get(j).refill(ammoStorage);
-          }
+      }
+      for (int i = 0; i < aircrafts.size(); i++) {
+        if (!aircrafts.get(i).isPriority()) {
+          ammoStorage = aircrafts.get(i).refill(ammoStorage);
         }
       }
-    } else {
-      System.out.println("There is no ammo, sorry.");
     }
   }
+
 
   public int totalDamage() {
     int totalDamage = 0;
@@ -54,8 +55,16 @@ public class Carrier {
 
   public void carrierFight(Carrier carrierToFightWith) {
     int carrierToFightWithHealth = carrierToFightWith.carrierHealth;
-    carrierToFightWithHealth -= totalDamage();
-    carrierHealth -= carrierToFightWith.totalDamage();
+    if (carrierToFightWithHealth > totalDamage()) {
+      carrierToFightWithHealth -= totalDamage();
+    } else {
+      carrierToFightWithHealth = 0;
+    }
+    if (carrierHealth > carrierToFightWith.totalDamage()) {
+      carrierHealth -= carrierToFightWith.totalDamage();
+    } else {
+      carrierHealth = 0;
+    }
     setCarrierHealth(carrierHealth);
     carrierToFightWith.setCarrierHealth(carrierToFightWithHealth);
     if (carrierHealth <= 0) {

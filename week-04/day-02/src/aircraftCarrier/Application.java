@@ -3,7 +3,7 @@ package aircraftCarrier;
 public class Application {
   public static void main(String[] args) {
 
-    Carrier carrier1 = new Carrier(2000, 900);
+    Carrier carrier1 = new Carrier(2000, 1300);
     Aircraft aircraft1 = new F16();
     Aircraft aircraft2 = new F35();
     carrier1.add(aircraft1);
@@ -11,7 +11,7 @@ public class Application {
 
     carrier1.fill();
 
-    Carrier carrier2 = new Carrier(20, 6);
+    Carrier carrier2 = new Carrier(25, 6);
     Aircraft aircraft3 = new F16();
     Aircraft aircraft4 = new F35();
     Aircraft aircraft5 = new F35();
