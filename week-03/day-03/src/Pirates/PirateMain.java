@@ -6,7 +6,5 @@ public class PirateMain {
 
     Ship ship1 = new Ship();
 
-
-
   }
 }
