@@ -1,13 +1,19 @@
 package com.greenfoxacademy.springstart.controllers;
 
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.util.concurrent.atomic.AtomicLong;
 
 @RestController
 public class HelloRESTController {
 
-  @RequestMapping(value = "/greeting")
-  public Greeting greeting(){
-    return new Greeting(1, "Hello, E.T.");
+  private AtomicLong id = new AtomicLong();
+
+  @RequestMapping("/greeting")
+  public Greeting greeting(@RequestParam("name") String content) {
+    id.getAndIncrement();
+    return new Greeting(id, content);
   }
 }
