@@ -24,4 +24,3 @@ public class BankAccount {
     return animalType;
   }
 }
-
