@@ -10,7 +10,7 @@ public class BankController {
   BankAccount simba = new BankAccount("Simba", 2000, "lion");
 
   @RequestMapping("/show")
-  public String showDetails(Model model) {
+  public String showBalance(Model model) {
     model.addAttribute("name", simba.getName());
     model.addAttribute("balance", simba.getBalance());
     model.addAttribute("currency", simba.getCurrency());
