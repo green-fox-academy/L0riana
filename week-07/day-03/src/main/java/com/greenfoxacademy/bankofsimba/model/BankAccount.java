@@ -14,6 +14,10 @@ public class BankAccount {
     currency = "Zebra";
   }
 
+  public BankAccount(String name) {
+    this.name = name;
+  }
+
   public String getName() {
     return name;
   }
