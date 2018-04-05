@@ -7,6 +7,7 @@ import java.util.Random;
 
 @Service
 public class UtilityService {
+
   private ArrayList<String> colors;
   private Random random;
 
@@ -22,5 +23,9 @@ public class UtilityService {
 
   public String randomColor() {
     return colors.get(random.nextInt(colors.size()));
+  }
+
+  public boolean validateEmail(String email) {
+    return (email.contains("@") && email.contains("."));
   }
 }

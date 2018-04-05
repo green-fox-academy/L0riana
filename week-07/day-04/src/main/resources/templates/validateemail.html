@@ -2,8 +2,9 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Background color</title>
+    <title>Validate email</title>
 </head>
-<body th:bgcolor="${color}">
+<body>
+<p th:text="${email}" th:style="'color: ' + ${color}"/>
 </body>
 </html>
