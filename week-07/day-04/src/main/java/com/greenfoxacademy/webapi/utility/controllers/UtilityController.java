@@ -39,4 +39,10 @@ public class UtilityController {
     }
     return "validateemail";
   }
+
+  @RequestMapping("/useful/caesar")
+  public String caesarCipher(Model model, @RequestParam("text") String text, @RequestParam("number") int number) {
+    model.addAttribute("text", utilityService.caesarCipher(text, number));
+    return "caesarcipher";
+  }
 }
