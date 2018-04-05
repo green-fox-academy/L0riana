@@ -22,7 +22,7 @@ public class WebapiApplication implements CommandLineRunner {
 
   @Override
   public void run(String... args) throws Exception {
-    System.out.println(printer.log("hello"));
+    printer.log("hello");
     myColor.printColor();
   }
 }
