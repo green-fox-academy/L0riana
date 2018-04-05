@@ -1,4 +1,4 @@
-package com.greenfoxacademy.webapi.utility;
+package com.greenfoxacademy.webapi.utility.services;
 
 import org.springframework.stereotype.Service;
 
@@ -7,8 +7,8 @@ import java.util.Random;
 
 @Service
 public class UtilityService {
-  ArrayList<String> colors;
-  Random random;
+  private ArrayList<String> colors;
+  private Random random;
 
   public UtilityService() {
     colors = new ArrayList<>();
