@@ -36,4 +36,14 @@ public class PokerTest {
     String output = poker.checkHighestCard(black, white);
     assertEquals("White wins! - (High card: Ace)", output);
   }
+
+  @Test
+  public void checkFlushTest() {
+    black = new ArrayList<>(Arrays.asList(new Card("2", "H"), new Card("4", "S"),
+            new Card("4", "C"), new Card("2", "D"), new Card("4", "H")));
+    white = new ArrayList<>(Arrays.asList(new Card("2", "S"), new Card("8", "S"),
+            new Card("A", "S"), new Card("Q", "S"), new Card("3", "S")));
+    String output = poker.checkFlush(black, white);
+    assertEquals("White wins! - (Flush:)", output);
+  }
 }

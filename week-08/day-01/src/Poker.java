@@ -26,17 +26,17 @@ public class Poker {
     }
   }
 
-  private String checkFlush(List<Card> black, List<Card> white) {
+  public String checkFlush(List<Card> black, List<Card> white) {
     boolean blackHasFlush = true;
     boolean whiteHasFlush = true;
     for (int i = 1; i < black.size(); i++) {
-      if (black.get(i).getColor().equals(black.get(i - 1).getColor())) {
+      if (!black.get(i).getColor().equals(black.get(i - 1).getColor())) {
         blackHasFlush = false;
         break;
       }
     }
     for (int i = 1; i < white.size(); i++) {
-      if (white.get(i).getColor().equals(white.get(i - 1).getColor())) {
+      if (!white.get(i).getColor().equals(white.get(i - 1).getColor())) {
         whiteHasFlush = false;
         break;
       }
