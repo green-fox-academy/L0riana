@@ -4,7 +4,6 @@ public class Card {
   private String color;
 
   public Card() {
-
   }
 
   public Card(String value, String color) {
