@@ -6,7 +6,7 @@ public class Poker {
     return checkHighestCard(black, white);
   }
 
-  private String checkHighestCard(List<Card> black, List<Card> white) {
+  public String checkHighestCard(List<Card> black, List<Card> white) {
     Card maxBlack = black.get(0);
     Card maxWhite = white.get(0);
     for (Card card : black) {
@@ -20,9 +20,33 @@ public class Poker {
       }
     }
     if (maxBlack.getCardValue() > maxWhite.getCardValue()) {
-      return "Black wins! - (High card: " + maxBlack.convertValue() + ")";
+      return "Black wins! - (High card: " + maxBlack.toString() + ")";
     } else {
-      return "White wins! - (High card: " + maxWhite.convertValue() + ")";
+      return "White wins! - (High card: " + maxWhite.toString() + ")";
+    }
+  }
+
+  private String checkFlush(List<Card> black, List<Card> white) {
+    boolean blackHasFlush = true;
+    boolean whiteHasFlush = true;
+    for (int i = 1; i < black.size(); i++) {
+      if (black.get(i).getColor().equals(black.get(i - 1).getColor())) {
+        blackHasFlush = false;
+        break;
+      }
+    }
+    for (int i = 1; i < white.size(); i++) {
+      if (white.get(i).getColor().equals(white.get(i - 1).getColor())) {
+        whiteHasFlush = false;
+        break;
+      }
+    }
+    if (blackHasFlush) {
+      return "Black wins! - (Flush:)";
+    } else if (whiteHasFlush) {
+      return "White wins! - (Flush:)";
+    } else {
+      return null;
     }
   }
 }

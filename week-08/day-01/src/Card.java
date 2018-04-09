@@ -44,20 +44,20 @@ public class Card {
     }
   }
 
-  public String convertValue() {
-    int cardValue = getCardValue();
-    if (cardValue == 10) {
+  @Override
+  public String toString() {
+    if (this.value.equalsIgnoreCase("t")) {
       return "10";
-    } else if (cardValue == 11) {
+    } else if (this.value.equalsIgnoreCase("j")) {
       return "Jack";
-    } else if (cardValue == 12) {
+    } else if (this.value.equalsIgnoreCase("q")) {
       return "Queen";
-    } else if (cardValue == 13) {
+    } else if (this.value.equalsIgnoreCase("k")) {
       return "King";
-    } else if (cardValue == 14) {
+    } else if (this.value.equalsIgnoreCase("a")) {
       return "Ace";
     } else {
-      return String.valueOf(cardValue);
+      return this.value;
     }
   }
 }
