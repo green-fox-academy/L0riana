@@ -27,4 +27,10 @@ public class PokerTest {
     int output = card.getCardValue();
     assertEquals(13, output);
   }
+
+  @Test
+  public void convertValueTest() {
+    String output = card.convertValue();
+    assertEquals("King", output);
+  }
 }
