@@ -3,7 +3,11 @@ import java.util.List;
 public class Poker {
 
   public String checkWin(List<Card> black, List<Card> white) {
-    return checkHighestCard(black, white);
+    if (checkFlush(black, white) != null) {
+      return checkFlush(black, white);
+    } else {
+      return checkHighestCard(black, white);
+    }
   }
 
   public String checkHighestCard(List<Card> black, List<Card> white) {
