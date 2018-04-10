@@ -24,10 +24,11 @@ public class TodoApplication implements CommandLineRunner {
 
   @Override
   public void run(String... args) throws Exception {
-    todoRepository.save(new Todo("Start the day"));
-    todoRepository.save(new Todo("Finish H2 workshop1"));
-    todoRepository.save(new Todo("Finish JPA workshop2"));
-    todoRepository.save(new Todo("Create a CRUD project"));
+//    todoRepository.save(new Todo("Start the day"));
+//    todoRepository.save(new Todo("Finish H2 workshop1"));
+//    todoRepository.save(new Todo("Finish JPA workshop2"));
+//    todoRepository.save(new Todo("Create a CRUD project"));
+    todoRepository.save(new Todo("I have to learn Object Relational Mapping"));
 
   }
 }
