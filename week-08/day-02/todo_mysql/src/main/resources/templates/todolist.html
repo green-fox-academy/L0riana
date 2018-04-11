@@ -16,15 +16,19 @@
         <th>ACTION</th>
         <th>DONE</th>
         <th>URGENT</th>
+        <th>DELETE</th>
     </tr>
 <tr th:each="todo : ${todos}">
     <td th:text="${todo.getId()}"></td>
     <td th:text="${todo.getTitle()}"></td>
     <td th:text="${todo.isUrgent()}"></td>
     <td th:text="${todo.isDone()}"></td>
+    <td>
+        <a class="label label-danger" th:href="@{/todo/{id}/delete(id=${todo.getId()})}">delete</a>
+    </td>
 </tr>
 </table>
-</body>
 <script src="webjars/jquery/1.11.1/jquery.min.js"></script>
 <script src="webjars/bootstrap/3.3.7-1/js/bootstrap.min.js"></script>
+</body>
 </html>
