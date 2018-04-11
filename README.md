@@ -11,3 +11,5 @@ Welcome! Please check out my other repos here:
 [heroku-project](https://github.com/L0riana/heroku-project)
 
 [todomysql-heroku](https://github.com/L0riana/todomysql-heroku)
+
+[foxclub-heroku](https://github.com/L0riana/foxclub-heroku)
