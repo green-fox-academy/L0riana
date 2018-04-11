@@ -1,6 +1,5 @@
 package com.greenfoxacademy.todo_mysql;
 
-import com.greenfoxacademy.todo_mysql.model.Todo;
 import com.greenfoxacademy.todo_mysql.repository.TodoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
