@@ -28,7 +28,5 @@ public class TodoMysqlApplication implements CommandLineRunner {
 //    todoRepository.save(new Todo("Finish JPA workshop2", false, true));
 //    todoRepository.save(new Todo("Create a CRUD project", false, true));
 //    todoRepository.save(new Todo("I have to learn Object Relational Mapping"));
-
   }
 }
-
