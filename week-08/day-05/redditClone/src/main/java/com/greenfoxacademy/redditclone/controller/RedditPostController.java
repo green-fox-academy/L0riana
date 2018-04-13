@@ -4,10 +4,14 @@ import com.greenfoxacademy.redditclone.model.RedditPost;
 import com.greenfoxacademy.redditclone.repository.RedditPostRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Controller
 public class RedditPostController {
@@ -20,7 +24,11 @@ public class RedditPostController {
   }
 
   @RequestMapping(value = "/")
-  public String indexPage() {
+  public String indexPage(Model model) {
+    List<RedditPost> redditPosts = new ArrayList<>();
+    redditPosts.add(new RedditPost("First Reddit post"));
+    redditPosts.add(new RedditPost("Second Reddit post"));
+    model.addAttribute("redditPostList", redditPosts);
     return "index";
   }
 
