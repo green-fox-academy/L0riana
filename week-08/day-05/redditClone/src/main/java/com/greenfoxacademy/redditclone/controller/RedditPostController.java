@@ -25,10 +25,7 @@ public class RedditPostController {
 
   @RequestMapping(value = "/")
   public String indexPage(Model model) {
-    List<RedditPost> redditPosts = new ArrayList<>();
-    redditPosts.add(new RedditPost("First Reddit post"));
-    redditPosts.add(new RedditPost("Second Reddit post"));
-    model.addAttribute("redditPostList", redditPosts);
+    model.addAttribute("redditPostList", redditPostRepository.findAll());
     return "index";
   }
 
