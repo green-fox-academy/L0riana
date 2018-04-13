@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.Random;
 
 @Service
-public class UtilityService {
+public class  UtilityService {
 
   private ArrayList<String> colors;
   private Random random;
