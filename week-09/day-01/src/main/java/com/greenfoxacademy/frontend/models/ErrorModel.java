@@ -1,10 +1,10 @@
 package com.greenfoxacademy.frontend.models;
 
-public class DoublingError {
+public class ErrorModel extends GreeterModel {
 
   private String error;
 
-  public DoublingError() {
+  public ErrorModel() {
     error = "Please provide an input!";
   }
 
