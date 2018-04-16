@@ -1,13 +1,7 @@
 package com.greenfoxacademy.frontend.controllers;
 
-import com.greenfoxacademy.frontend.models.AppendModel;
-import com.greenfoxacademy.frontend.models.Doubling;
-import com.greenfoxacademy.frontend.models.ErrorModel;
-import com.greenfoxacademy.frontend.models.GreeterModel;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
+import com.greenfoxacademy.frontend.models.*;
+import org.springframework.web.bind.annotation.*;
 
 @org.springframework.web.bind.annotation.RestController
 public class RestController {
@@ -35,5 +29,22 @@ public class RestController {
   @RequestMapping(value = "/appenda/{appendable}", method = RequestMethod.GET)
   public AppendModel append(@PathVariable String appendable) {
     return new AppendModel(appendable);
+  }
+
+  @RequestMapping(value = "/dountil/{what}", method = RequestMethod.POST)
+  public JsonModel jsonMethod(@RequestBody(required = false) JsonModel until, @PathVariable(required = false) String what) {
+    if (until != null) {
+      if (what.equals("sum")) {
+        until.sum();
+      } else if (what.equals("factor")) {
+        until.factor();
+      } else {
+        until.setError("Please provide a number!");
+      }
+    } else {
+      until = new JsonModel();
+      until.setError("Please provide a number!");
+    }
+    return until;
   }
 }
