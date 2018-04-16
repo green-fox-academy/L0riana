@@ -1,8 +1,10 @@
 package com.greenfoxacademy.frontend.controllers;
 
+import com.greenfoxacademy.frontend.models.AppendModel;
 import com.greenfoxacademy.frontend.models.Doubling;
 import com.greenfoxacademy.frontend.models.ErrorModel;
 import com.greenfoxacademy.frontend.models.GreeterModel;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -28,5 +30,10 @@ public class RestController {
     } else {
       return new GreeterModel(name, title);
     }
+  }
+
+  @RequestMapping(value = "/appenda/{appendable}", method = RequestMethod.GET)
+  public AppendModel append(@PathVariable String appendable) {
+    return new AppendModel(appendable);
   }
 }
