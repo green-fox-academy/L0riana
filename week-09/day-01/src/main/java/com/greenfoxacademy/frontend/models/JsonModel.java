@@ -10,7 +10,6 @@ public class JsonModel {
   }
 
   public JsonModel() {
-    //this.error = "Please provide a number!";
   }
 
   public int sum() {
