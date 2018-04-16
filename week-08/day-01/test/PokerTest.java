@@ -7,17 +7,17 @@ import static org.junit.Assert.*;
 
 public class PokerTest {
 
-  private Poker poker = new Poker();
-  private Card card;
-  private List<Card> black;
-  private List<Card> white;
+    private Poker poker = new Poker();
+    private Card card;
+    private List<Card> black;
+    private List<Card> white;
 
-  @Test
-  public void getCardValueTest() {
-    card = new Card("K", "D");
-    int output = card.getCardValue();
-    assertEquals(13, output);
-  }
+    @Test
+    public void getCardValueTest() {
+      card = new Card("K", "D");
+      int output = card.getCardValue();
+      assertEquals(13, output);
+    }
 
   @Test
   public void toStringTest() {
