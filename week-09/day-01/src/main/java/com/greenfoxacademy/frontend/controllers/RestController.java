@@ -32,7 +32,7 @@ public class RestController {
   }
 
   @RequestMapping(value = "/dountil/{what}", method = RequestMethod.POST)
-  public JsonModel jsonMethod(@RequestBody(required = false) JsonModel until, @PathVariable(required = false) String what) {
+  public DoUntil doUntil(@RequestBody(required = false) DoUntil until, @PathVariable(required = false) String what) {
     if (until != null) {
       if (what.equals("sum")) {
         until.sum();
@@ -42,7 +42,7 @@ public class RestController {
         until.setError("Please provide a number!");
       }
     } else {
-      until = new JsonModel();
+      until = new DoUntil();
       until.setError("Please provide a number!");
     }
     return until;

@@ -1,15 +1,15 @@
 package com.greenfoxacademy.frontend.models;
 
-public class JsonModel {
+public class DoUntil {
   private int until;
   private int result;
   private String error;
 
-  public JsonModel(int until) {
+  public DoUntil(int until) {
     this.until = until;
   }
 
-  public JsonModel() {
+  public DoUntil() {
   }
 
   public int sum() {
