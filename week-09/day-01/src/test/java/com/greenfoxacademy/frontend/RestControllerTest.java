@@ -145,4 +145,26 @@ public class RestControllerTest {
             //.andExpect(content().contentType(contentType))
             .andExpect(jsonPath("$.result", is(120)));
   }
+
+  @Test
+  public void testDoUntilOtherWhatError() throws Exception {
+    mockMvc
+            .perform(post("/dountil/error")
+                    .contentType(MediaType.APPLICATION_JSON)
+                    .content("{\"until\": 5}"))
+            .andExpect(status().isOk())
+            //.andExpect(content().contentType(contentType))
+            .andExpect(jsonPath("$.error", is("Please provide a number!")));
+  }
+
+  @Test
+  public void testDoUntilNoNumber() throws Exception {
+    mockMvc
+            .perform(post("/dountil/sum")
+                    .contentType(MediaType.APPLICATION_JSON)
+                    .content(""))
+            .andExpect(status().isOk())
+            //.andExpect(content().contentType(contentType))
+            .andExpect(jsonPath("$.error", is("Please provide a number!")));
+  }
 }
