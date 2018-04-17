@@ -14,8 +14,9 @@ import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 
 import java.nio.charset.Charset;
 import java.util.Random;
-
+import static org.hamcrest.core.Is.is;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
@@ -124,6 +125,24 @@ public class RestControllerTest {
   }
 
   @Test
-  public void doUntil() {
+  public void testDoUntilSumIs15() throws Exception {
+    mockMvc
+            .perform(post("/dountil/sum")
+                    .contentType(MediaType.APPLICATION_JSON)
+                    .content("{\"until\": 5}"))
+            .andExpect(status().isOk())
+            //.andExpect(content().contentType(contentType))
+            .andExpect(jsonPath("$.result", is(15)));
+  }
+
+  @Test
+  public void testDoUntilFactorIs120() throws Exception {
+    mockMvc
+            .perform(post("/dountil/factor")
+                    .contentType(MediaType.APPLICATION_JSON)
+                    .content("{\"until\": 5}"))
+            .andExpect(status().isOk())
+            //.andExpect(content().contentType(contentType))
+            .andExpect(jsonPath("$.result", is(120)));
   }
 }

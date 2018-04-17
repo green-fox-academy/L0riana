@@ -1,4 +1,9 @@
-Random rand = new Random();
-
-int  n = rand.nextInt(50) + 1;
-
+@Test
+  public void isFactor120() throws Exception {
+    mockMvc
+            .perform(post("/dountil/factor")
+                    .contentType(MediaType.APPLICATION_JSON)
+                    .content("{\"until\": 5}"))
+            .andExpect(status().isOk())
+            .andExpect(jsonPath("$.result").value(120));
+  }
