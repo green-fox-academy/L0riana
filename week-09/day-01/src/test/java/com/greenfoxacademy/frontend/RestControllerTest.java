@@ -1,9 +1,5 @@
 package com.greenfoxacademy.frontend;
 
-
-import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -13,17 +9,16 @@ import org.springframework.http.MediaType;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.context.web.WebAppConfiguration;
 import org.springframework.test.web.servlet.MockMvc;
-import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.web.context.WebApplicationContext;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 
 import java.nio.charset.Charset;
+import java.util.Random;
 
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 import static org.springframework.test.web.servlet.setup.MockMvcBuilders.webAppContextSetup;
-
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
@@ -61,6 +56,18 @@ public class RestControllerTest {
                     .contentType(MediaType.APPLICATION_JSON))
             .andExpect(status().isOk())
             .andExpect(jsonPath("$.error").value("Please provide an input!"));
+  }
+
+  @Test
+  public void testDoublingAny() throws Exception {
+    Random rand = new Random();
+    int  anyNumber = rand.nextInt(50) + 1;
+    String any = Integer.toString(anyNumber);
+    mockMvc
+            .perform(get("/doubling?input=" + any)
+                    .contentType(MediaType.APPLICATION_JSON))
+            .andExpect(status().isOk())
+            .andExpect(jsonPath("$.result").value(2 * Integer.parseInt(any)));
   }
 
   @Test

@@ -1,9 +1,4 @@
-mockMvc.perform(post("/user/signup")
-               .contentType(MediaType.APPLICATION_JSON)
-               .content("{\"email\": \"name@example.com\", \"password\": \"12345\"}"))
-               .andExpect(status().isOk())
-               .andExpect(content().contentType(contentType))
-               .andExpect(jsonPath("$.result", is("fail")))
-               .andExpect(jsonPath("$.message", is("email address already exists")));
-   }
+Random rand = new Random();
+
+int  n = rand.nextInt(50) + 1;
 
