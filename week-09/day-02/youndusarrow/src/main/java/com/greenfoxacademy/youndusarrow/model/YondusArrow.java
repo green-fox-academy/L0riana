@@ -5,6 +5,7 @@ public class YondusArrow {
   double distance;
   double time;
   double speed;
+  String error;
 
   public YondusArrow(double distance, double time) {
     this.distance = distance;
@@ -13,6 +14,11 @@ public class YondusArrow {
   }
 
   public YondusArrow() {
+    this.error = "Please provide a distance";
+  }
+
+  public YondusArrow(double time) {
+    this.error = "Please provide a time";
   }
 
   public double getDistance() {
