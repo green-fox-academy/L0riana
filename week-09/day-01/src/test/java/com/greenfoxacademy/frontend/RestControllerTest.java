@@ -16,6 +16,7 @@ import java.nio.charset.Charset;
 import java.util.Random;
 
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 import static org.springframework.test.web.servlet.setup.MockMvcBuilders.webAppContextSetup;
@@ -98,7 +99,28 @@ public class RestControllerTest {
   }
 
   @Test
-  public void append() {
+  public void testAppendWithAOK() throws Exception {
+    mockMvc
+            .perform(get("/appenda/kuty")
+                    .contentType(MediaType.APPLICATION_JSON))
+            .andExpect(status().isOk())
+            .andExpect(jsonPath("$.appended").value("kutya"));
+  }
+
+  @Test
+  public void testAppendErrorNotFound() throws Exception {
+    mockMvc
+            .perform(get("/appenda")
+                    .contentType(MediaType.APPLICATION_JSON))
+            .andExpect(status().isNotFound());
+  }
+
+  @Test
+  public void testAppendError4xx() throws Exception {
+    mockMvc
+            .perform(get("/append")
+                    .contentType(MediaType.APPLICATION_JSON))
+            .andExpect(status().is4xxClientError());
   }
 
   @Test
