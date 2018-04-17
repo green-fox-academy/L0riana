@@ -80,6 +80,24 @@ public class RestControllerTest {
   }
 
   @Test
+  public void testGreeterErrorNoTitle() throws Exception {
+    mockMvc
+            .perform(get("/greeter?name=petike")
+                    .contentType(MediaType.APPLICATION_JSON))
+            .andExpect(status().isOk())
+            .andExpect(jsonPath("$.error").value("Please provide a title!"));
+  }
+
+  @Test
+  public void testGreeterIsOK() throws Exception {
+    mockMvc
+            .perform(get("/greeter?name=micike&title=student")
+                    .contentType(MediaType.APPLICATION_JSON))
+            .andExpect(status().isOk())
+            .andExpect(jsonPath("$.welcome_message").value("Oh, hi there micike, my dear student!"));
+  }
+
+  @Test
   public void append() {
   }
 
