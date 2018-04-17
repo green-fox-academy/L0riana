@@ -61,7 +61,7 @@ public class RestControllerTest {
   @Test
   public void testDoublingAny() throws Exception {
     Random rand = new Random();
-    int  anyNumber = rand.nextInt(50) + 1;
+    int anyNumber = rand.nextInt(50) + 1;
     String any = Integer.toString(anyNumber);
     mockMvc
             .perform(get("/doubling?input=" + any)
@@ -71,7 +71,12 @@ public class RestControllerTest {
   }
 
   @Test
-  public void greeter() {
+  public void testGreeterError() throws Exception {
+    mockMvc
+            .perform(get("/greeter")
+                    .contentType(MediaType.APPLICATION_JSON))
+            .andExpect(status().isOk())
+            .andExpect(jsonPath("$.error").value("Please provide a name!"));
   }
 
   @Test
