@@ -15,3 +15,5 @@ Welcome! Please check out my other repos here:
 [foxclub-heroku](https://github.com/L0riana/foxclub-heroku)
 
 [p2p-chat](https://github.com/L0riana/p2p-chat)
+
+[webstore](https://github.com/L0riana/pallida-orientation-exam-retake)
