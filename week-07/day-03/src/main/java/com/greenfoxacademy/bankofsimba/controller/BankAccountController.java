@@ -17,18 +17,18 @@ public class BankAccountController {
 
   @RequestMapping(value = "/show", method = RequestMethod.GET)
   public String showBalance(Model model) {
-    model.addAttribute("bankaccount", new BankAccount("Simba", 2000, "lion"));
+    model.addAttribute("bankaccount", new BankAccount("Simba", 2000, "lion", true));
     return "bankofsimba";
   }
 
   @RequestMapping(value = "/showaccounts", method = RequestMethod.GET)
   public String showAllAccount(Model model) {
     ArrayList<BankAccount> bankAccounts = new ArrayList<>(Arrays.asList(
-            new BankAccount("Simba", 2000, "lion"),
-            new BankAccount("Pumbaa", 900, "warthog"),
-            new BankAccount("Timon", 800, "meerkat"),
-            new BankAccount("Pumbaa", 700, "horbill"),
-            new BankAccount("Rafiki", 600, "mandrill")
+            new BankAccount("Simba", 2000, "lion", true),
+            new BankAccount("Pumbaa", 900, "warthog", false),
+            new BankAccount("Timon", 800, "meerkat", false),
+            new BankAccount("Pumbaa", 700, "horbill", false),
+            new BankAccount("Rafiki", 600, "mandrill", false)
     ));
     model.addAttribute("accounts", bankAccounts);
     return "multipleaccounts";

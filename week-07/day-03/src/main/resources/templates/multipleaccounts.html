@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
+<link href="../static/layout.css" th:href="@{/layout.css}" rel="stylesheet" />
 <head>
     <title>Thymeleaf Exercise #</title>
     <link rel="stylesheet" th:href="@{/style.css}"/>
@@ -12,12 +13,14 @@
         <th>Name</th>
         <th>Balance</th>
         <th>AnimalType</th>
+        <th>isKing</th>
     </tr>
     <tr th:each="bankAccount : ${accounts}">
         <td th:text="${bankAccountStat.index+1}">
         <td th:text="${bankAccount.getName()}"/>
         <td th:text="${bankAccount.getBalance()}"/>
         <td th:text="${bankAccount.getAnimalType()}"/>
+        <td th:class="${bankAccount.isKing()} ? king : notking" th:text="${bankAccount.isKing()}">
     </tr>
 </table>
 </body>
