@@ -1,9 +1,8 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<link href="../static/layout.css" th:href="@{/layout.css}" rel="stylesheet" />
 <head>
     <title>Thymeleaf Exercise #</title>
-    <link rel="stylesheet" th:href="@{/style.css}"/>
+    <link rel="stylesheet" th:href="@{/layout.css}"/>
     <meta charset="utf-8"/>
 </head>
 <body>
@@ -14,6 +13,7 @@
         <th>Balance</th>
         <th>AnimalType</th>
         <th>isKing</th>
+        <th>isGood</th>
     </tr>
     <tr th:each="bankAccount : ${accounts}">
         <td th:text="${bankAccountStat.index+1}">
@@ -21,6 +21,11 @@
         <td th:text="${bankAccount.getBalance()}"/>
         <td th:text="${bankAccount.getAnimalType()}"/>
         <td th:class="${bankAccount.isKing()} ? king : notking" th:text="${bankAccount.isKing()}">
+        <!--<td th:class="${bankAccount.isGood()} ? goodGuy : badGuy" th:text="${bankAccount.isGood()}">-->
+        <td><th:block th:switch="${bankAccount.isGood()}">
+          <div th:case="true">Good guy</div>
+          <div th:case="false">Bad guy</div>
+        </th:block></td>
     </tr>
 </table>
 </body>
