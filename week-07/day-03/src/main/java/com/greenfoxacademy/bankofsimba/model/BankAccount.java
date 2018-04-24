@@ -45,4 +45,8 @@ public class BankAccount {
   public boolean isGood() {
     return isGood;
   }
+
+  public void setBalance(int balance) {
+    this.balance = balance;
+  }
 }
