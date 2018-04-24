@@ -4,24 +4,24 @@ import com.greenfoxacademy.bankofsimba.model.BankAccount;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 @Controller
-public class BankController {
-  BankAccount bankAccount = new BankAccount("Simba", 2000, "lion");
+public class BankAccountController {
 
-  @RequestMapping("/show")
+  private List<BankAccount> bankAccountList = new ArrayList<>();
+
+  @RequestMapping(value = "/show", method = RequestMethod.GET)
   public String showBalance(Model model) {
-    model.addAttribute("name", bankAccount.getName());
-    model.addAttribute("balance", bankAccount.getBalance());
-    model.addAttribute("currency", bankAccount.getCurrency());
-    model.addAttribute("animalType", bankAccount.getAnimalType());
+    model.addAttribute("bankaccount", new BankAccount("Simba", 2000, "lion"));
     return "bankofsimba";
   }
 
-  @RequestMapping("/showaccounts")
+  @RequestMapping(value = "/showaccounts", method = RequestMethod.GET)
   public String showAllAccount(Model model) {
     ArrayList<BankAccount> bankAccounts = new ArrayList<>(Arrays.asList(
             new BankAccount("Simba", 2000, "lion"),

@@ -7,6 +7,11 @@ public class BankAccount {
   private String animalType;
   private String currency;
 
+
+  public BankAccount() {
+
+  }
+
   public BankAccount(String name, int balance, String animalType) {
     this.name = name;
     this.balance = balance;
@@ -14,9 +19,7 @@ public class BankAccount {
     currency = "Zebra";
   }
 
-  public BankAccount(String name) {
-    this.name = name;
-  }
+
 
   public String getName() {
     return name;

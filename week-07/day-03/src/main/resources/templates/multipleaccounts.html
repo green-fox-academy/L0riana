@@ -6,13 +6,15 @@
     <meta charset="utf-8"/>
 </head>
 <body>
-<table class="table table-striped">
+<table class="table" border = "1">
     <tr>
+        <th>Index</th>
         <th>Name</th>
         <th>Balance</th>
         <th>AnimalType</th>
     </tr>
     <tr th:each="bankAccount : ${accounts}">
+        <td th:text="${bankAccountStat.index+1}">
         <td th:text="${bankAccount.getName()}"/>
         <td th:text="${bankAccount.getBalance()}"/>
         <td th:text="${bankAccount.getAnimalType()}"/>
