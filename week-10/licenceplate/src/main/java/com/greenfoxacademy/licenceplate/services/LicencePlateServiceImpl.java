@@ -44,7 +44,14 @@ public class LicencePlateServiceImpl implements LicencePlateService {
 
   @Override
   public boolean validateSearch(String plate) {
-    return plate.matches("^[a-zA-Z0-9-]+");
+    if (!plate.equals("diplomat")) {
+      if ((plate.length() > 7)) {
+        return false;
+      }
+    } else {
+      return plate.matches("^[a-zA-Z0-9-]+");
+    }
+    return true;
   }
 
   public List<LicencePlate> searchedPlate(String plate) {
