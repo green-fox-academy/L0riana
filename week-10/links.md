@@ -1,9 +1,7 @@
-<<<<<<< HEAD
 Orientation exam practice
 
 [licenceplate](https://github.com/Atis0505/pallida-orientation-exam)
-=======
-Orientation exam practice
 
-[licenceplate](https://github.com/Atis0505/pallida-orientation-exam)
->>>>>>> 6827f605d66b19a3e7aa3ce22e9d878603b5febb
+[spaceship](https://github.com/greenfox-academy/corsac-orientation-exam)
+
+[errorticket](https://github.com/L0riana/corsac-orientation-exam-retake)
