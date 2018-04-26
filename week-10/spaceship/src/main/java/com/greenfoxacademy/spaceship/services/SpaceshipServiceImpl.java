@@ -45,21 +45,35 @@ public class SpaceshipServiceImpl implements SpaceshipService {
 
   @Override
   public void movePeopleToShip(Long id) {
-    int freeSpaceOnShip = spaceship.getMaxCapacity() - spaceship.getUtilization();
-    if (freeSpaceOnShip == 0) {
-      return;
-    }
     Planet planet = planetRepository.findById(id).get();
-    int peopleTransferCount = freeSpaceOnShip;
-    if (freeSpaceOnShip <= planet.getPopulation()) {
-      planet.modifyPopulation(-peopleTransferCount);
-      spaceship.modifyMovingPeopleOnShip(peopleTransferCount);
+    if (checkFreeSpaceOnShip() <= planet.getPopulation()) {
+      move60PeopleFromPlanetToShip(id);
     } else {
-      spaceship.setUtilization(planet.getPopulation().intValue());
-      planet.setPopulation(0L);
+      moveAllPossiblePeopleFromPlanetToShip(id);
     }
     planetRepository.save(planet);
     spaceshipRepository.save(spaceship);
+  }
+
+  public int checkFreeSpaceOnShip() {
+    int freeSpaceOnShip = spaceship.getMaxCapacity() - spaceship.getUtilization();
+    if (freeSpaceOnShip == 0) {
+      return 0;
+    } else {
+      return freeSpaceOnShip;
+    }
+  }
+
+  public void move60PeopleFromPlanetToShip(Long id) {
+    Planet planet = planetRepository.findById(id).get();
+    planet.modifyPopulation(-checkFreeSpaceOnShip());
+    spaceship.modifyMovingPeopleOnShip(checkFreeSpaceOnShip());
+  }
+
+  public void moveAllPossiblePeopleFromPlanetToShip(Long id) {
+    Planet planet = planetRepository.findById(id).get();
+    spaceship.setUtilization(planet.getPopulation().intValue());
+    planet.setPopulation(0L);
   }
 
   @Override
