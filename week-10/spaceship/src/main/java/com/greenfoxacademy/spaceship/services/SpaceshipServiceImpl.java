@@ -35,4 +35,11 @@ public class SpaceshipServiceImpl implements SpaceshipService{
   public Spaceship getSpaceship() {
     return spaceship;
   }
+
+  @Override
+  public void moveShipToPlanet(Long id) {
+    Planet planet = planetRepository.findById(id).get();
+    spaceship.setPlanet(planet.getName());
+    spaceshipRepository.save(spaceship);
+  }
 }
