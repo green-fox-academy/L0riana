@@ -14,4 +14,8 @@ public interface SpaceshipService {
   Spaceship getSpaceship();
 
   void moveShipToPlanet(Long id);
+
+  void movePeopleToShip(Long id);
+
+  void movePeopleToPlanet(Long id);
 }

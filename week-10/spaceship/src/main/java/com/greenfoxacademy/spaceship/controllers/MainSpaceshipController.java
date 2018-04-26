@@ -36,4 +36,16 @@ public class MainSpaceshipController {
     spaceshipService.moveShipToPlanet(id);
     return "redirect:/";
   }
+
+  @GetMapping("/toship/{id}")
+  public String movePeopleToShip(@PathVariable(value = "id") Long id) {
+    spaceshipService.movePeopleToShip(id);
+    return "redirect:/";
+  }
+
+  @GetMapping("/toplanet/{id}")
+  public String movePeopleToPlanet(@PathVariable(value = "id") Long id) {
+    spaceshipService.movePeopleToPlanet(id);
+    return "redirect:/";
+  }
 }

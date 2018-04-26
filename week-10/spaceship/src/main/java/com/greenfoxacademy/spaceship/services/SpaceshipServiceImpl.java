@@ -10,7 +10,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public class SpaceshipServiceImpl implements SpaceshipService{
+public class SpaceshipServiceImpl implements SpaceshipService {
 
   private PlanetRepository planetRepository;
   private SpaceshipRepository spaceshipRepository;
@@ -40,6 +40,34 @@ public class SpaceshipServiceImpl implements SpaceshipService{
   public void moveShipToPlanet(Long id) {
     Planet planet = planetRepository.findById(id).get();
     spaceship.setPlanet(planet.getName());
+    spaceshipRepository.save(spaceship);
+  }
+
+  @Override
+  public void movePeopleToShip(Long id) {
+    int freeSpaceOnShip = spaceship.getMaxCapacity() - spaceship.getUtilization();
+    if (freeSpaceOnShip == 0) {
+      return;
+    }
+    Planet planet = planetRepository.findById(id).get();
+    int peopleTransferCount = freeSpaceOnShip;
+    if (freeSpaceOnShip <= planet.getPopulation()) {
+      planet.modifyPopulation(-peopleTransferCount);
+      spaceship.modifyMovingPeopleOnShip(peopleTransferCount);
+    } else {
+      spaceship.setUtilization(planet.getPopulation().intValue());
+      planet.setPopulation(0L);
+    }
+    planetRepository.save(planet);
+    spaceshipRepository.save(spaceship);
+  }
+
+  @Override
+  public void movePeopleToPlanet(Long id) {
+    Planet planet = planetRepository.findById(id).get();
+    planet.modifyPopulation(spaceship.getUtilization());
+    spaceship.setUtilization(0);
+    planetRepository.save(planet);
     spaceshipRepository.save(spaceship);
   }
 }

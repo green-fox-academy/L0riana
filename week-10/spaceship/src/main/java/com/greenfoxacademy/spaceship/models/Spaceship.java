@@ -55,4 +55,8 @@ public class Spaceship {
   public void setUtilization(int utilization) {
     this.utilization = utilization;
   }
+
+  public void modifyMovingPeopleOnShip(int difference) {
+    this.utilization += difference;
+  }
 }
