@@ -18,4 +18,4 @@ Welcome! Please check out my other repos here:
 
 [webstore](https://github.com/L0riana/pallida-orientation-exam-retake)
 
-[trave-office](https://github.com/L0riana/traveloffice)
+[travel-office](https://github.com/L0riana/traveloffice)
