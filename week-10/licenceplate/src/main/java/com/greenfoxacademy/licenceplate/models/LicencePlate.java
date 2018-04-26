@@ -3,6 +3,7 @@ package com.greenfoxacademy.licenceplate.models;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.Size;
 
 @Entity
 @Table(name = "licencePlates")

@@ -1,7 +1,6 @@
 package com.greenfoxacademy.licenceplate.repositories;
 
 import com.greenfoxacademy.licenceplate.models.LicencePlate;
-import com.greenfoxacademy.licenceplate.services.LicencePlateService;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
@@ -12,6 +11,9 @@ public interface LicencePlateRepository extends CrudRepository<LicencePlate, Str
 
   List<LicencePlate> findAll();
 
-  List<LicencePlate> findAllByCarBrand(String carBrand);
+  List<LicencePlate> findAllByCarBrand(String brand);
 
+  List<LicencePlate> findAllByPlateContaining(String plate);
+
+  List<LicencePlate> findAllByPlateStartingWith(String plate);
 }

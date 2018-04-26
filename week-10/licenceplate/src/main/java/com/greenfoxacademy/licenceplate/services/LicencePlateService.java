@@ -12,4 +12,14 @@ public interface LicencePlateService {
 
   List<LicencePlate> getByBrand(String carBrand);
 
+  boolean validateSearch(String plate);
+
+  List<LicencePlate> getAllPolice();
+
+  List<LicencePlate> getAllDiplomat();
+
+  List<LicencePlate> getAllByPlate(String plate);
+
+  List<LicencePlate> searchedPlate(String plate);
+
 }
