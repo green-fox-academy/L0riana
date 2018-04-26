@@ -3,6 +3,8 @@ package com.greenfoxacademy.licenceplate.controllers;
 import com.greenfoxacademy.licenceplate.services.LicencePlateService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
 public class MainLicencePlateController {
@@ -14,5 +16,8 @@ public class MainLicencePlateController {
     this.licencePlateService = licencePlateService;
   }
 
-
+  @GetMapping("/")
+  public String indexPage() {
+    return "index";
+  }
 }
