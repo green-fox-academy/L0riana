@@ -44,25 +44,25 @@ public class LicencePlateServiceImpl implements LicencePlateService {
 
   @Override
   public boolean validateSearch(String plate) {
-    if (!plate.equals("diplomat")) {
+    if (!plate.equals("diplomat") && !plate.equals("police")) {
       if ((plate.length() > 7)) {
         return false;
+      } else {
+        return plate.matches("^[A-Z0-9-]+");
       }
-    } else {
-      return plate.matches("^[a-zA-Z0-9-]+");
     }
     return true;
   }
 
-  public List<LicencePlate> searchedPlate(String plate) {
-    if (plate == null) {
-      return null;
-    } else if (plate.equals("police")) {
-      return getAllPolice();
-    } else if (plate.equals("diplomat")) {
-      return getAllDiplomat();
-    } else {
-      return getAllByPlate(plate);
+    public List<LicencePlate> searchedPlate (String plate){
+      if (plate == null) {
+        return null;
+      } else if (plate.equals("police")) {
+        return getAllPolice();
+      } else if (plate.equals("diplomat")) {
+        return getAllDiplomat();
+      } else {
+        return getAllByPlate(plate);
+      }
     }
   }
-}
