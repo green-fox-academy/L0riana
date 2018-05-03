@@ -8,30 +8,21 @@
 </head>
 <body>
 <h1 th:text="'TODOS FOR TODAY'"/></h1>
+<h1 th:text="'Assignees'"></h1>
 <h3>
-    <a class="label label-success" th:href="@{/todo/add}">Add new todo</a>
+    <a class="label label-success" th:href="@{/todo/assignees/add}">Add new assignee</a>
 </h3>
 <table class="table table-striped">
     <tr>
         <th>ID</th>
-        <th>ACTION</th>
-        <th>DONE</th>
-        <th>URGENT</th>
-        <th>DELETE</th>
-        <th>UPDATE</th>
+        <th>NAME</th>
+        <th>EMAIL</th>
     </tr>
-<tr th:each="todo : ${todos}">
-    <td th:text="${todo.getId()}"></td>
-    <td th:text="${todo.getTitle()}"></td>
-    <td th:text="${todo.isUrgent()}"></td>
-    <td th:text="${todo.isDone()}"></td>
-    <td>
-        <a class="label label-danger" th:href="@{/todo/{id}/delete(id=${todo.id})}">delete</a>
-    </td>
-    <td>
-        <a class="label label-primary " th:href="@{/todo/{id}/edit(id=${todo.id})}">update</a>
-    </td>
-</tr>
+    <tr th:each="assignee : ${assignees}">
+        <td th:text="${assignee.assigneeID}"></td>
+        <td th:text="${assignee.name}"></td>
+        <td th:text="${assignee.email}"></td>
+    </tr>
 </table>
 <script src="webjars/jquery/1.11.1/jquery.min.js"></script>
 <script src="webjars/bootstrap/3.3.7-1/js/bootstrap.min.js"></script>

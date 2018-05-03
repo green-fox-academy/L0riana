@@ -1,9 +1,6 @@
 package com.greenfoxacademy.todo_mysql.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 public class Todo {
@@ -15,10 +12,14 @@ public class Todo {
   private boolean urgent;
   private boolean done;
 
+  @ManyToOne
+  @JoinColumn(name = "assigneeId")
+  private Assignee assignee;
+
   public Todo() {
   }
 
-  public Todo(String title) {
+  public Todo(String title){
     this.title = title;
   }
 
@@ -52,11 +53,19 @@ public class Todo {
     this.done = done;
   }
 
-  public long getId() {
+  public Long getId() {
     return id;
   }
 
   public void setId(Long id) {
     this.id = id;
+  }
+
+  public Assignee getAssignee() {
+    return assignee;
+  }
+
+  public void setAssignee(Assignee assignee) {
+    this.assignee = assignee;
   }
 }
