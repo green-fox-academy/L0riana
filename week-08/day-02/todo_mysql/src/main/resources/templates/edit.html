@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <title>Update todo</title>
+</head>
+<body>
+<form class="form-inline" action="#" th:action="@{edit}" th:object="${todo}" method="post">
+    <label for="description">Update Todo:</label>
+    <input type="text" class="form-control mx-sm-3"
+           id="description" th:field="*{title}" th:required="required"/><br>
+    <div class="input-group-text">
+        <input type="checkbox" th:field="*{urgent}" th:checked="*{urgent}"/>Urgent<br>
+    </div>
+    <div class="input-group-text">
+        <input type="checkbox" th:field="*{done}" th:checked="*{done}"/>Done<br>
+    </div>
+    <input type="submit" class="btn btn-danger" value="Submit"/>
+</form>
+</body>
+</html>
