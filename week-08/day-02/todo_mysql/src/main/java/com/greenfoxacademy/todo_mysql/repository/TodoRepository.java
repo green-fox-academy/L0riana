@@ -8,8 +8,10 @@ import java.util.Optional;
 
 public interface TodoRepository extends CrudRepository<Todo, Long> {
 
-  public List<Todo> findByDone(boolean bool);
+  List<Todo> findByDone(boolean bool);
 
   Optional<Todo> findById(Long id);
+
+  void deleteById(Long id);
 
 }
