@@ -11,16 +11,19 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/todo")
 public class TodoController {
 
-  @Autowired
   TodoRepository todoRepository;
 
+  @Autowired
+  public TodoController(TodoRepository todoRepository) {
+    this.todoRepository = todoRepository;
+  }
 
   @GetMapping({"/", "/list"})
   public String list(Model model, @RequestParam(value = "isActive", required = false) Boolean isActive) {
     if (isActive == null) {
       model.addAttribute("todos", todoRepository.findAll());
     } else {
-      model.addAttribute("todos", todoRepository.findBydone(!isActive));
+      model.addAttribute("todos", todoRepository.findByDone(!isActive));
     }
     return "todolist";
   }
@@ -43,7 +46,7 @@ public class TodoController {
   }
 
   @GetMapping(value = "/{id}/edit")
-  public String edit(@PathVariable(name = "id") long id, Model model) {
+  public String edit(@PathVariable(name = "id") Long id, Model model) {
     model.addAttribute("todo", todoRepository.findById(id).get());
     return "edit";
   }

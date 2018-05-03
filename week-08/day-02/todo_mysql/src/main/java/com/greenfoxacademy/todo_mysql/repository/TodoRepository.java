@@ -4,9 +4,12 @@ import com.greenfoxacademy.todo_mysql.model.Todo;
 import org.springframework.data.repository.CrudRepository;
 
 import java.util.List;
+import java.util.Optional;
 
 public interface TodoRepository extends CrudRepository<Todo, Long> {
 
-  public List<Todo> findBydone(boolean bool);
+  public List<Todo> findByDone(boolean bool);
+
+  Optional<Todo> findById(Long id);
 
 }
