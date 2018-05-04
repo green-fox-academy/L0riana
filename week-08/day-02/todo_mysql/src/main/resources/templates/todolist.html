@@ -7,9 +7,10 @@
     <title>TODO CRUD App</title>
 </head>
 <body>
-<h1 th:text="'TODOS FOR TODAY'"/></h1>
-<h3>
+<h1 class="text-center" th:text="'TODOS FOR TODAY'" /></h1>
+<h3 class="text-center">
     <a class="label label-success" th:href="@{/todo/add}">Add new todo</a>
+    <a class="label label-info" th:href="@{/todo/assignees}">List of assignees</a>
 </h3>
 <table class="table table-striped">
     <tr>
