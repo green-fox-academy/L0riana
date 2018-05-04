@@ -12,6 +12,11 @@
     <a class="label label-success" th:href="@{/todo/add}">Add new todo</a>
     <a class="label label-info" th:href="@{/todo/assignees}">List of assignees</a>
 </h3>
+<form action="#" th:action="@{/todo/search}" method="post">
+    <label for="name"><h3>Search Todo:</h3></label>
+    <input type="text" class="form-control" id="name" name="title" th:placeholder="Title" th:required="required"/>
+    <input type="submit" class="btn btn-danger" value="Search" />
+</form>
 <table class="table table-striped">
     <tr>
         <th>ID</th>

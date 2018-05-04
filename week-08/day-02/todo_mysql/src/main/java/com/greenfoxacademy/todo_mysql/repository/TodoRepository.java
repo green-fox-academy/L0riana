@@ -1,7 +1,9 @@
 package com.greenfoxacademy.todo_mysql.repository;
 
 import com.greenfoxacademy.todo_mysql.model.Todo;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -16,5 +18,8 @@ public interface TodoRepository extends CrudRepository<Todo, Long> {
   Optional<Todo> findById(Long id);
 
   void deleteById(Long id);
+
+  @Query("select lower(c) from Todo c where c.title like %:text%")
+  List<Todo> searchTitle(@Param("text") String text);
 
 }
