@@ -13,6 +13,8 @@ import java.util.Optional;
 @Repository
 public interface TodoRepository extends CrudRepository<Todo, Long> {
 
+  List<Todo> findAll();
+
   List<Todo> findByDone(boolean bool);
 
   Optional<Todo> findById(Long id);

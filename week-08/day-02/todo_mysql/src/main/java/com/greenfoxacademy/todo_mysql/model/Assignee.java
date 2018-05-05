@@ -15,8 +15,8 @@ public class Assignee {
   private String name;
   private String email;
 
-  @OneToMany(mappedBy = "assignee")
-  private List<Todo> todos;
+  @OneToMany(mappedBy = "id")
+  private List<Todo> todoList;
 
   public Assignee() {
   }
@@ -50,11 +50,11 @@ public class Assignee {
     this.email = email;
   }
 
-  public List<Todo> getTodos() {
-    return todos;
+  public List<Todo> getTodoList() {
+    return todoList;
   }
 
-  public void setTodos(List<Todo> todos) {
-    this.todos = todos;
+  public void setTodoList(List<Todo> todoList) {
+    this.todoList = todoList;
   }
 }

@@ -56,4 +56,10 @@ public class AssigneeController {
     assigneeRepository.save(editedAssignee);
     return "redirect:/todo/assignees";
   }
+
+  @GetMapping(value = "/todo/assignees/{assigneeId}")
+  public String seeTodos(@PathVariable(name = "assigneeId") Long assigneeId, Model model) {
+    model.addAttribute("assignee", assigneeRepository.findById(assigneeId).get());
+    return "assigneetodolist";
+  }
 }

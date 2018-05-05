@@ -1,6 +1,7 @@
 package com.greenfoxacademy.todo_mysql.controller;
 
 import com.greenfoxacademy.todo_mysql.model.Todo;
+import com.greenfoxacademy.todo_mysql.repository.AssigneeRepository;
 import com.greenfoxacademy.todo_mysql.repository.TodoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -11,11 +12,13 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/todo")
 public class TodoController {
 
-  TodoRepository todoRepository;
+  private TodoRepository todoRepository;
+  private AssigneeRepository assigneeRepository;
 
   @Autowired
-  public TodoController(TodoRepository todoRepository) {
+  public TodoController(TodoRepository todoRepository, AssigneeRepository assigneeRepository) {
     this.todoRepository = todoRepository;
+    this.assigneeRepository = assigneeRepository;
   }
 
   @GetMapping({"/", "/list"})
@@ -48,6 +51,7 @@ public class TodoController {
   @GetMapping(value = "/{id}/edit")
   public String edit(@PathVariable Long id, Model model) {
     model.addAttribute("todo", todoRepository.findById(id).get());
+    model.addAttribute("assignees", assigneeRepository.findAll());
     return "edittodo";
   }
 
