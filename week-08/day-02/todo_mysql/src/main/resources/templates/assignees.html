@@ -17,11 +17,19 @@
         <th>ID</th>
         <th>NAME</th>
         <th>EMAIL</th>
+        <th>DELETE</th>
+        <th>UPDATE</th>
     </tr>
     <tr th:each="assignee : ${assignees}">
-        <td th:text="${assignee.assigneeID}"></td>
+        <td th:text="${assignee.assigneeId}"></td>
         <td th:text="${assignee.name}"></td>
         <td th:text="${assignee.email}"></td>
+        <td>
+            <a class="label label-danger" th:href="@{/todo/assignees/{id}/delete(id=${assignee.assigneeId})}">delete</a>
+        </td>
+        <td>
+            <a class="label label-primary " th:href="@{/todo/assignees/{id}/edit(id=${assignee.assigneeId})}">update</a>
+        </td>
     </tr>
 </table>
 <p>

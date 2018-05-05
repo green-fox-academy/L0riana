@@ -10,8 +10,8 @@ import java.util.List;
 public class Assignee {
 
   @Id
-  @GeneratedValue(strategy= GenerationType.AUTO)
-  private Long assigneeID;
+  @GeneratedValue(strategy= GenerationType.IDENTITY)
+  private Long assigneeId;
   private String name;
   private String email;
 
@@ -26,12 +26,12 @@ public class Assignee {
     this.email = email;
   }
 
-  public Long getAssigneeID() {
-    return assigneeID;
+  public Long getAssigneeId() {
+    return assigneeId;
   }
 
-  public void setAssigneeID(Long assigneeID) {
-    this.assigneeID = assigneeID;
+  public void setAssigneeId(Long assigneeId) {
+    this.assigneeId = assigneeId;
   }
 
   public String getName() {

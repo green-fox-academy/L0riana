@@ -1,14 +1,12 @@
 package com.greenfoxacademy.todo_mysql.controller;
 
 import com.greenfoxacademy.todo_mysql.model.Assignee;
+import com.greenfoxacademy.todo_mysql.model.Todo;
 import com.greenfoxacademy.todo_mysql.repository.AssigneeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 @Controller
 @RequestMapping("/todo")
@@ -38,6 +36,24 @@ public class AssigneeController {
   @PostMapping(value = "/assignees/add")
   public String addedAssignees(@ModelAttribute Assignee newAssignee) {
     assigneeRepository.save(newAssignee);
+    return "redirect:/todo/assignees";
+  }
+
+  @GetMapping("/assignees/{assigneeId}/delete")
+  public String deleteAssignee(@PathVariable Long assigneeId) {
+    assigneeRepository.deleteById(assigneeId);
+    return "redirect:/todo/assignees";
+  }
+
+  @GetMapping(value = "/assignees/{assigneeId}/edit")
+  public String editAssignee(@PathVariable Long assigneeId, Model model) {
+    model.addAttribute("assignee", assigneeRepository.findById(assigneeId).get());
+    return "editassignee";
+  }
+
+  @PostMapping(value = "/assignees/{assigneeId}/edit")
+  public String editedAssignee(@ModelAttribute Assignee editedAssignee) {
+    assigneeRepository.save(editedAssignee);
     return "redirect:/todo/assignees";
   }
 }
