@@ -19,7 +19,7 @@ public interface TodoRepository extends CrudRepository<Todo, Long> {
 
   void deleteById(Long id);
 
-  @Query("select lower(c) from Todo c where c.title like %:text%")
-  List<Todo> searchTitle(@Param("text") String text);
+  @Query("select c from Todo c where c.title like %:text%")
+  List<Todo> findTodoByTitle(@Param("text") String text);
 
 }
