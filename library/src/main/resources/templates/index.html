@@ -20,17 +20,32 @@
         <th>ISBN</th>
         <th>Borrowed by</th>
         <th>Borrower ID</th>
+        <th>Add borrower</th>
     </tr>
     <tr th:each="book : ${books}">
         <td th:text="${book.id}"></td>
         <td th:text="${book.title}"></td>
         <td th:text="${book.author}"></td>
         <td th:text="${book.ISBN}"></td>
-        <td th:if="${book.borrowedBy}!=null" th:text="${book.borrowedBy.name}"></td>
-        <td th:if="${book.borrowedBy}!= null" th:text="${book.borrowedBy.id}"></td>
+        <th:block th:if="${book.borrowedBy}!=null">
+            <td th:text="${book.borrowedBy.name}"></td>
+            <td th:text="${book.borrowedBy.id}"></td>
+        </th:block>
+        <td>
+            <form action="#" th:action="@{/(id=${book.id})}" method="post" th:object="${user}">
+                <select>
+                    <option th:each="user : ${users}"
+                            th:value="${user.name}"
+                            th:text="${user.name}"></option>
+                    <div class="form-button">
+                        <input type="submit" value="Add"/>
+                    </div>
+                    </option>
+                </select>
+            </form>
+        </td>
     </tr>
 </table>
-
 <table class="table table-striped">
     <tr>
         <th>ID</th>

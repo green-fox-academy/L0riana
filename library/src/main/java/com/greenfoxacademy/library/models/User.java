@@ -15,7 +15,6 @@ public class User {
   private Integer id;
   private String name;
 
-  @JsonIgnore
   @OneToMany(mappedBy = "borrowedBy")
   private List<Book> borrowedBooks;
 

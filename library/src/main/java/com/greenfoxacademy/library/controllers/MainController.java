@@ -7,10 +7,9 @@ import com.greenfoxacademy.library.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.ArrayList;
 
 @Controller
 public class MainController {
@@ -28,8 +27,22 @@ public class MainController {
   public String indexPage(Model model) {
     model.addAttribute("users", userRepository.findAll());
     model.addAttribute("books", bookRepository.findAll());
-
+    model.addAttribute("user", new User());
+    model.addAttribute("book", new Book());
     return "index";
+  }
+
+  @PostMapping("/")
+  public String indexPage(@ModelAttribute User user, @RequestParam Integer id){
+    Book book = bookRepository.findById(id).get();
+    book.setBorrowedBy(user);
+    User oneUser = userRepository.findById(user.getId()).get();
+    ArrayList<Book> books = (ArrayList<Book>) oneUser.getBorrowedBooks();
+    books.add(bookRepository.findById(id).get());
+    user.setBorrowedBooks(books);
+    userRepository.save(user);
+    bookRepository.save(book);
+    return "redirect:/";
   }
 
   @GetMapping("/books/add")
