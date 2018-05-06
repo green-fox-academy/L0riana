@@ -1,5 +1,7 @@
 package com.greenfoxacademy.library.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.util.List;
 
@@ -13,7 +15,16 @@ public class User {
   private Integer id;
   private String name;
 
+  @JsonIgnore
+  @OneToMany(mappedBy = "borrowedBy")
+  private List<Book> borrowedBooks;
+
   public User() {
+  }
+
+  public User(String name, List<Book> borrowedBooks) {
+    this.name = name;
+    this.borrowedBooks = borrowedBooks;
   }
 
   public User(String name) {
@@ -34,5 +45,13 @@ public class User {
 
   public void setName(String name) {
     this.name = name;
+  }
+
+  public List<Book> getBorrowedBooks() {
+    return borrowedBooks;
+  }
+
+  public void setBorrowedBooks(List<Book> borrowedBooks) {
+    this.borrowedBooks = borrowedBooks;
   }
 }

@@ -18,12 +18,16 @@
         <th>TITLE</th>
         <th>AUTHOR</th>
         <th>ISBN</th>
+        <th>Borrowed by</th>
+        <th>Borrower ID</th>
     </tr>
     <tr th:each="book : ${books}">
         <td th:text="${book.id}"></td>
         <td th:text="${book.title}"></td>
         <td th:text="${book.author}"></td>
         <td th:text="${book.ISBN}"></td>
+        <td th:if="${book.borrowedBy}!=null" th:text="${book.borrowedBy.name}"></td>
+        <td th:if="${book.borrowedBy}!= null" th:text="${book.borrowedBy.id}"></td>
     </tr>
 </table>
 

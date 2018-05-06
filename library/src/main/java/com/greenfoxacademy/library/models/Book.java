@@ -1,5 +1,7 @@
 package com.greenfoxacademy.library.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.util.List;
 
@@ -16,6 +18,10 @@ public class Book {
   @Column(name = "isbn")
   private String ISBN;
 
+  @JsonIgnore
+  @ManyToOne
+  private User borrowedBy;
+
   public Book() {
   }
 
@@ -23,6 +29,13 @@ public class Book {
     this.title = title;
     this.author = author;
     this.ISBN = ISBN;
+  }
+
+  public Book(String title, String author, String ISBN, User borrowedBy) {
+    this.title = title;
+    this.author = author;
+    this.ISBN = ISBN;
+    this.borrowedBy = borrowedBy;
   }
 
   public Book(String title) {
@@ -59,5 +72,13 @@ public class Book {
 
   public void setISBN(String ISBN) {
     this.ISBN = ISBN;
+  }
+
+  public User getBorrowedBy() {
+    return borrowedBy;
+  }
+
+  public void setBorrowedBy(User borrowedBy) {
+    this.borrowedBy = borrowedBy;
   }
 }
