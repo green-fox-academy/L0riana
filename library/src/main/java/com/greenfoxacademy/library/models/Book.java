@@ -8,7 +8,7 @@ import java.util.List;
 public class Book {
 
   @Id
-  @GeneratedValue(strategy = GenerationType.TABLE)
+  @GeneratedValue(strategy = GenerationType.AUTO)
   @Column(name = "book_id")
   private Integer id;
   private String title;
@@ -23,6 +23,10 @@ public class Book {
     this.title = title;
     this.author = author;
     this.ISBN = ISBN;
+  }
+
+  public Book(String title) {
+    this.title = title;
   }
 
   public Integer getId() {
