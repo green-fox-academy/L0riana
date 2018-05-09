@@ -34,6 +34,11 @@ public class TodoRestController {
     return todoService.findAll();
   }
 
+  @PostMapping("/user/save")
+  public User saveUser(@RequestBody User newUser) {
+    return userService.save(new User());
+  }
+
   @GetMapping("user/list")
   public List<User> listUsers() {
     return userService.findAll();
