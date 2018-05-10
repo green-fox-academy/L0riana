@@ -8,7 +8,7 @@ import java.util.List;
 @Service
 public interface TodoService {
 
-  List<Todo> findAll();
+    List<Todo> findAll();
 
-  Todo save(Todo todo);
+    Todo save(Todo todo);
 }
