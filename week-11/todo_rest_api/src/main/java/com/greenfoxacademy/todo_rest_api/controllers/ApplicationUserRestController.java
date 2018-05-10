@@ -24,11 +24,11 @@ public class ApplicationUserRestController {
   }
 
   @PostMapping(value = {"/sign_up"})
-  public ResponseEntity register(@RequestBody(required = true) ApplicationUser newApplicationUser) {
+  public ResponseEntity signUp(@RequestBody(required = true) ApplicationUser newApplicationUser) {
     if (newApplicationUser != null) {
       newApplicationUser.setPassword(passwordEncoder.encode(newApplicationUser.getPassword()));
       applicationUserService.save(newApplicationUser);
-      return new ResponseEntity(new JsonResponse("User is registered"), HttpStatus.OK);
+      return new ResponseEntity(new JsonResponse("New user registered successfully"), HttpStatus.OK);
     }
     else {
       return new ResponseEntity(new JsonResponse("Error"), HttpStatus.UNAUTHORIZED);

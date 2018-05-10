@@ -3,6 +3,7 @@ package com.greenfoxacademy.todo_rest_api.models;
 import javax.persistence.*;
 
 @Entity
+@Table(name="todos")
 public class Todo {
 
   @GeneratedValue(strategy = GenerationType.IDENTITY)
