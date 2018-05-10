@@ -37,12 +37,12 @@ public class JWTAuthorizationFilter extends BasicAuthenticationFilter {
     }
     UsernamePasswordAuthenticationToken usernamePasswordAuth = getAuthenticationToken(request);
     SecurityContextHolder.getContext().setAuthentication(usernamePasswordAuth);
-    chain.doFilter(request,response);
+    chain.doFilter(request, response);
   }
 
-  private UsernamePasswordAuthenticationToken getAuthenticationToken(HttpServletRequest request){
+  private UsernamePasswordAuthenticationToken getAuthenticationToken(HttpServletRequest request) {
     String token = request.getHeader(HEADER_STRING);
-    if (token == null){
+    if (token == null) {
       return null;
     }
     String username = Jwts.parser().setSigningKey(SECRET)
@@ -51,7 +51,7 @@ public class JWTAuthorizationFilter extends BasicAuthenticationFilter {
             .getSubject();
     UserDetails userDetails = customUserDetailsService.loadUserByUsername(username);
     ApplicationUser applicationUser = customUserDetailsService.loadApplicationUserByUsername(username);
-    if(username != null){
+    if (username != null) {
       return new UsernamePasswordAuthenticationToken(applicationUser, null, userDetails.getAuthorities());
     }
     return null;
