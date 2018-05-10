@@ -1,5 +1,7 @@
 package com.greenfoxacademy.securitydemo.service;
 
+import com.greenfoxacademy.securitydemo.model.ApplicationUser;
+import javafx.application.Application;
 import org.springframework.security.core.authority.AuthorityUtils;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -12,6 +14,12 @@ public class CustomUserDetailsService implements UserDetailsService {
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        return new User("user", "pass", AuthorityUtils.createAuthorityList("ROLE_USER"));
+      ApplicationUser applicationUser = loadApplicationUserByUsername(username);
+        return new User(applicationUser.getUsername(), applicationUser.getPassword(),
+                AuthorityUtils.createAuthorityList("ROLE_USER"));
+    }
+
+    public ApplicationUser loadApplicationUserByUsername(String username){
+      return new ApplicationUser("user", "pass");
     }
 }
