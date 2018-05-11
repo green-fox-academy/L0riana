@@ -10,5 +10,7 @@ public interface TodoService {
 
     List<Todo> findAll();
 
+    Todo findByTitle(String title);
+
     Todo save(Todo todo);
 }

@@ -23,6 +23,11 @@ public class TodoServiceImpl implements TodoService {
     }
 
     @Override
+    public Todo findByTitle(String title) {
+        return todoRepository.findByTitle(title);
+    }
+
+    @Override
     public Todo save(Todo todo) {
         return todoRepository.save(todo);
     }
