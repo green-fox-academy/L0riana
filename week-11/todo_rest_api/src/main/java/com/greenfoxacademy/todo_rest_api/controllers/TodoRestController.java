@@ -25,7 +25,7 @@ public class TodoRestController {
   public ResponseEntity addTodo(@RequestBody(required = false) Todo newTodo) {
     if (newTodo != null) {
       todoService.save(newTodo);
-      return new ResponseEntity(new JsonResponse("New todo added: " + newTodo.getTitle()), HttpStatus.OK);
+      return new ResponseEntity(new JsonResponse(newTodo.getTitle() + " is added to the todolist"), HttpStatus.OK);
     } else {
       return new ResponseEntity(new JsonResponse("Error"), HttpStatus.BAD_REQUEST);
     }

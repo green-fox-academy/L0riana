@@ -2,6 +2,7 @@ package com.greenfoxacademy.todo_rest_api.controllers;
 
 import com.greenfoxacademy.todo_rest_api.models.ApplicationUser;
 import com.greenfoxacademy.todo_rest_api.models.JsonResponse;
+import com.greenfoxacademy.todo_rest_api.models.JsonResponseApiUser;
 import com.greenfoxacademy.todo_rest_api.services.ApplicationUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -28,20 +29,20 @@ public class ApplicationUserRestController {
     if (newApplicationUser != null) {
       newApplicationUser.setPassword(passwordEncoder.encode(newApplicationUser.getPassword()));
       applicationUserService.save(newApplicationUser);
-      return new ResponseEntity(new JsonResponse("New user registered successfully"), HttpStatus.OK);
+      return new ResponseEntity(new JsonResponseApiUser("New user registered successfully"), HttpStatus.OK);
     }
     else {
-      return new ResponseEntity(new JsonResponse("Error"), HttpStatus.UNAUTHORIZED);
+      return new ResponseEntity(new JsonResponseApiUser("Error"), HttpStatus.UNAUTHORIZED);
     }
   }
 
   @PostMapping(value = {"/login"})
   public ResponseEntity login(@RequestBody(required = true) ApplicationUser applicationUser) {
     if (applicationUser != null) {
-      return new ResponseEntity(new JsonResponse("Successfully logged in"), HttpStatus.OK);
+      return new ResponseEntity(new JsonResponseApiUser("Successfully logged in"), HttpStatus.OK);
     }
     else {
-      return new ResponseEntity(new JsonResponse("Error"), HttpStatus.UNAUTHORIZED);
+      return new ResponseEntity(new JsonResponseApiUser("Error"), HttpStatus.UNAUTHORIZED);
     }
   }
 }
