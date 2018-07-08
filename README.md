@@ -1,4 +1,4 @@
-Welcome! Please check out my other repos here:
+Welcome! Please check out my other repos and projects here:
 
 [git-lesson-repository](https://github.com/L0riana/git-lesson-repository)
 
